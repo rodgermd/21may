@@ -1,4 +1,10 @@
-# Internal routing configuration to handle ESI
-#_internal:
-#    resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
-#    prefix:   /_internal
+site_base:
+    resource: "@SiteBaseBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+#site_user:
+#    resource: "@SiteUserBundle/Controller/"
+#    type:     annotation
+#    prefix:   /
+#
