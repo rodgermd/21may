@@ -13,3 +13,5 @@ parameters:
 
     locale:            en
     secret:            ThisTokenIsNotSoSecretChangeIt
+
+    yui_compressor: /usr/share/yui-compressor/yui-compressor.jar
