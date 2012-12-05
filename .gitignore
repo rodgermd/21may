@@ -9,6 +9,8 @@
 /.idea
 /vendor
 /web/bundles
+/web/css
+/composer
 /composer.phar
 /composer.lock
 

@@ -1,0 +1,25 @@
+knp_gaufrette:
+  adapters:
+    accomodation:
+      local:
+        directory: %kernel.root_dir%/../images/accomodation
+
+  filesystems:
+    accomodation_fs:
+      adapter:    accomodation
+
+vich_uploader:
+  db_driver: orm
+  gaufrette: true
+  storage: vich_uploader.storage.gaufrette
+  mappings:
+    accomodation:
+      upload_destination: accomodation_fs
+      namer: my.namer.product
+
+liip_imagine:
+  driver: imagick
+  filter_sets:
+    my_thumb:
+      filters:
+          thumbnail: { size: [120, 90], mode: outbound }

@@ -7,7 +7,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 /**
- * @Route("/{_locale}", defaults={"_locale" : "en"})
+ * @Route("/{_locale}", defaults={"_locale" : "en"}, requirements={"_locale"="en|es|de"})
  */
 class PageController extends Controller
 {

@@ -9,7 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class LanguageController extends Controller
 {
   /**
-   * @Route("/")
+   * @Route("/", requirements={"_locale"="en|es|de"})
    */
   public function indexAction()
   {

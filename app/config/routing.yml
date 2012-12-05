@@ -3,8 +3,28 @@ site_base:
     type:     annotation
     prefix:   /
 
-#site_user:
-#    resource: "@SiteUserBundle/Controller/"
-#    type:     annotation
-#    prefix:   /
-#
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+    prefix: /user
+
+fos_user_security_login:
+    pattern: /user/login
+    defaults: {_controller: FOSUserBundle:Security:login}
+
+admin:
+    resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
+    prefix: /admin
+
+_sonata_admin:
+    resource: .
+    type: sonata_admin
+    prefix: /admin
+
+SiteAdminBundle:
+    resource: "@SiteAdminBundle/Controller/"
+    type:     annotation
+    prefix:   /admin
+
+_imagine:
+    resource: .
+    type:     imagine

@@ -21,7 +21,8 @@ class AppKernel extends Kernel
       new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
       new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
       new FOS\UserBundle\FOSUserBundle(),
-      new Avalanche\Bundle\ImagineBundle\AvalancheImagineBundle(),
+      new Liip\ImagineBundle\LiipImagineBundle(),
+      new Knp\Bundle\MenuBundle\KnpMenuBundle(),
       new Knp\Bundle\GaufretteBundle\KnpGaufretteBundle(),
       new Vich\UploaderBundle\VichUploaderBundle(),
 
@@ -29,15 +30,19 @@ class AppKernel extends Kernel
       new Sonata\CacheBundle\SonataCacheBundle(),
       new Sonata\jQueryBundle\SonatajQueryBundle(),
       new Sonata\AdminBundle\SonataAdminBundle(),
+      new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
 
       new Site\UserBundle\SiteUserBundle(),
       new Site\BaseBundle\SiteBaseBundle(),
+      new Site\AdminBundle\SiteAdminBundle(),
+            new Site\SonataBundle\SiteSonataBundle(),
     );
 
     if (in_array($this->getEnvironment(), array('dev', 'test'))) {
       $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
       $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
       $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
+      $bundles[] = new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle();
     }
 
     return $bundles;

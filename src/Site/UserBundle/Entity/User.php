@@ -32,4 +32,12 @@ class User extends BaseUser
   {
     return $this->id;
   }
+
+  public function __construct()
+  {
+    parent::__construct();
+
+    $this->locked = false;
+    $this->enabled = true;
+  }
 }

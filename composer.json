@@ -22,9 +22,10 @@
     "jms/di-extra-bundle":"1.1.*",
     "stof/doctrine-extensions-bundle":"dev-master",
     "friendsofsymfony/user-bundle":"*",
-    "avalanche123/imagine-bundle": "*",
+    "liip/imagine-bundle": "dev-master",
     "vich/uploader-bundle": "dev-master",
     "knplabs/knp-gaufrette-bundle" : "dev-master",
+    "doctrine/doctrine-fixtures-bundle": "dev-master",
 
     "sonata-project/admin-bundle": "dev-master",
     "sonata-project/doctrine-orm-admin-bundle" : "dev-master",
