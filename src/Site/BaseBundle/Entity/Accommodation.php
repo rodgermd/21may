@@ -8,12 +8,12 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
- * Accomodation
+ * Accommodation
  *
- * @ORM\Table(name="accomodations")
- * @ORM\Entity(repositoryClass="Site\BaseBundle\Entity\AccomodationRepository")
+ * @ORM\Table(name="accommodations")
+ * @ORM\Entity(repositoryClass="Site\BaseBundle\Entity\AccommodationRepository")
  */
-class Accomodation
+class Accommodation
 {
   /**
    * @var integer
@@ -100,7 +100,7 @@ class Accomodation
    * Set title
    *
    * @param string $title
-   * @return Accomodation
+   * @return Accommodation
    */
   public function setTitle($title)
   {
@@ -123,7 +123,7 @@ class Accomodation
    * Set image_filename
    *
    * @param string $imageFilename
-   * @return Accomodation
+   * @return Accommodation
    */
   public function setImageFilename($imageFilename)
   {
@@ -146,7 +146,7 @@ class Accomodation
    * Set description
    *
    * @param string $description
-   * @return Accomodation
+   * @return Accommodation
    */
   public function setDescription($description)
   {
@@ -169,7 +169,7 @@ class Accomodation
    * Set secondary_text
    *
    * @param string $secondaryText
-   * @return Accomodation
+   * @return Accommodation
    */
   public function setSecondaryText($secondaryText)
   {
@@ -237,7 +237,7 @@ class Accomodation
   /**
    * Sets uploaded file
    * @param \Symfony\Component\HttpFoundation\File\UploadedFile $file
-   * @return Accomodation
+   * @return Accommodation
    */
   public function setFile(UploadedFile $file)
   {
