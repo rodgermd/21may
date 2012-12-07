@@ -20,6 +20,7 @@ class AccommodationAdmin extends Admin
     $form
       ->add('title')
       ->add('file', 'image_file', array(
+      'filter' => 'accomodation_small',
       'required'   => false,
       'use_delete' => $subject->getImageFilename(),
       'method'     => 'getImageFilename'

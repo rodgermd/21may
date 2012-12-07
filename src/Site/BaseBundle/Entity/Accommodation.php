@@ -13,6 +13,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  *
  * @ORM\Table(name="accommodations")
  * @ORM\Entity(repositoryClass="Site\BaseBundle\Entity\AccommodationRepository")
+ * @Vich\Uploadable
  */
 class Accommodation
 {

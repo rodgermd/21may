@@ -1,8 +1,21 @@
+services:
+  uploader.namer.md5:
+    class: Site\BaseBundle\Namer\MD5FileNamer
+
+  liip_imagine.data.loader.stream.accommodation:
+          class: "%liip_imagine.data.loader.stream.class%"
+          arguments:
+              - "@liip_imagine"
+              - 'gaufrette://accommodation_fs/'
+          tags:
+              - { name: 'liip_imagine.data.loader', loader: 'stream.accommodation' }
+
 knp_gaufrette:
+  stream_wrapper: ~
   adapters:
     accommodation:
       local:
-        directory: %kernel.root_dir%/../images/accomodation
+        directory: %kernel.root_dir%/../web/uploads/accomodation
 
   filesystems:
     accommodation_fs:
@@ -14,12 +27,14 @@ vich_uploader:
   storage: vich_uploader.storage.gaufrette
   mappings:
     accommodation:
+      uri_prefix: /
       upload_destination: accommodation_fs
-      namer: my.namer.product
+      namer: uploader.namer.md5
 
 liip_imagine:
   driver: imagick
   filter_sets:
-    small:
+    accomodation_small:
+      data_loader: stream.accommodation
       filters:
         thumbnail: { size: [40, 40], mode: outbound }
