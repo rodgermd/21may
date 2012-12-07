@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Accommodation
@@ -34,47 +35,47 @@ class Accommodation
   /**
    * @var string
    *
-   * @ORM\Column(name="image_filename", type="string", length=50)
+   * @ORM\Column(name="image_filename", type="string", length=50, nullable=true)
    */
   private $image_filename;
 
   /**
    * @var string
    *
-   * @ORM\Column(name="description", type="text")
+   * @ORM\Column(name="description", type="text", nullable=true)
    */
   private $description;
 
   /**
    * @var string
    *
-   * @ORM\Column(name="secondary_text", type="text")
+   * @ORM\Column(name="secondary_text", type="text", nullable=true)
    */
   private $secondary_text;
 
   /**
    * @var \DateTime
-   *
+   * @Gedmo\Timestampable(on="create")
    * @ORM\Column(name="created_at", type="datetime")
    */
   private $created_at;
 
   /**
    * @var \DateTime
-   *
+   * @Gedmo\Timestampable(on="update")
    * @ORM\Column(name="updated_at", type="datetime")
    */
   private $updated_at;
 
   /**
-   * @var UploadedFile $primary_image
+   * @var UploadedFile $file
    * @Assert\File(
    *     maxSize="10M",
    *     mimeTypes={"image/png", "image/jpeg", "image/pjpeg"}
    * )
-   * @Vich\UploadableField(mapping="accomodation", fileNameProperty="image_filename")
+   * @Vich\UploadableField(mapping="accommodation", fileNameProperty="image_filename")
    */
-  private $primary_image;
+  private $file;
 
   /**
    * Gets string representation
@@ -241,7 +242,7 @@ class Accommodation
    */
   public function setFile(UploadedFile $file)
   {
-    $this->primary_image = $file;
+    $this->file = $file;
     $this->setUpdatedAt(new \DateTime());
     return $this;
   }
@@ -252,6 +253,6 @@ class Accommodation
    */
   public function getFile()
   {
-    return $this->primary_image;
+    return $this->file;
   }
 }

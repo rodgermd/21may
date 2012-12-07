@@ -84,4 +84,8 @@ sonata_block:
             contexts:   [admin]
         sonata.block.service.text:
         sonata.block.service.rss:
-
+stof_doctrine_extensions:
+  orm:
+    default:
+      timestampable: true
+      sluggable: true

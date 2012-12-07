@@ -16,12 +16,16 @@ class AccommodationAdmin extends Admin
 
   protected function configureFormFields(FormMapper $form)
   {
+    $subject = $form->getAdmin()->getSubject();
     $form
       ->add('title')
-      ->add('primary_image')
-      ->add('description')
-      ->add('secondary_text')
-    ;
+      ->add('file', 'image_file', array(
+      'required'   => false,
+      'use_delete' => $subject->getImageFilename(),
+      'method'     => 'getImageFilename'
+    ))
+      ->add('description', 'textarea', array('required' => false))
+      ->add('secondary_text', 'textarea', array('required' => false));
   }
 
 }
