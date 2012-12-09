@@ -1,0 +1,4 @@
+./symfony doctrine:database:drop --force
+./symfony doctrine:database:create
+./symfony doctrine:schema:create
+./symfony doctrine:fixtures:load

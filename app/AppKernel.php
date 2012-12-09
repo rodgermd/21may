@@ -28,7 +28,7 @@ class AppKernel extends Kernel
 
       new Sonata\BlockBundle\SonataBlockBundle(),
       new Sonata\CacheBundle\SonataCacheBundle(),
-      new Sonata\jQueryBundle\SonatajQueryBundle(),
+//      new Sonata\jQueryBundle\SonatajQueryBundle(),
       new Sonata\AdminBundle\SonataAdminBundle(),
       new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
 
@@ -37,7 +37,9 @@ class AppKernel extends Kernel
       new Site\AdminBundle\SiteAdminBundle(),
       new Site\SonataBundle\SiteSonataBundle(),
 
-      new \Rodgermd\SfToolsBundle\RodgermdSfToolsBundle(),
+      new Rodgermd\SfToolsBundle\RodgermdSfToolsBundle(),
+      new Ladela\PersonalTranslationsWidgetBundle\PersonalTranslationsWidgetBundle(),
+      new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
     );
 
     if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -31,6 +31,12 @@ twig:
 parameters:
     assetic.filter.compass.images_dir: %kernel.root_dir%/../web/images
     assetic.filter.compass.http_path:  /images
+    languages:
+      en: English
+      es: Spanish
+
+stfalcon_tinymce:
+  tinymce_jquery: true
 
 assetic:
     debug:          "%kernel.debug%"
@@ -92,3 +98,6 @@ stof_doctrine_extensions:
     default:
       timestampable: true
       sluggable: true
+      translatable: true
+personal_translations_widget:
+  languages: %languages%

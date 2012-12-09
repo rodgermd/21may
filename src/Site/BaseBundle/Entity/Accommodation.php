@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Accommodation
@@ -14,6 +15,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * @ORM\Table(name="accommodations")
  * @ORM\Entity(repositoryClass="Site\BaseBundle\Entity\AccommodationRepository")
  * @Vich\Uploadable
+ * @Gedmo\TranslationEntity(class="Site\BaseBundle\Entity\AccommodationTranslation")
  */
 class Accommodation
 {
@@ -28,7 +30,7 @@ class Accommodation
 
   /**
    * @var string
-   *
+   * @Gedmo\Translatable
    * @ORM\Column(name="title", type="string", length=255)
    */
   private $title;
@@ -42,14 +44,14 @@ class Accommodation
 
   /**
    * @var string
-   *
+   * @Gedmo\Translatable
    * @ORM\Column(name="description", type="text", nullable=true)
    */
   private $description;
 
   /**
    * @var string
-   *
+   * @Gedmo\Translatable
    * @ORM\Column(name="secondary_text", type="text", nullable=true)
    */
   private $secondary_text;
@@ -77,6 +79,41 @@ class Accommodation
    * @Vich\UploadableField(mapping="accommodation", fileNameProperty="image_filename")
    */
   private $file;
+
+  /**
+   * @ORM\OneToMany(
+   *   targetEntity="AccommodationTranslation",
+   *   mappedBy="object",
+   *   cascade={"persist", "remove"}
+   * )
+   */
+  private $translations;
+
+  public function __construct()
+  {
+    $this->translations = new ArrayCollection();
+  }
+
+  /**
+   * Gets Translations
+   * @return ArrayCollection
+   */
+  public function getTranslations()
+  {
+    return $this->translations;
+  }
+
+  /**
+   * Adds translation
+   * @param AccommodationTranslation $t
+   */
+  public function addTranslation(AccommodationTranslation $t)
+  {
+    if (!$this->translations->contains($t)) {
+      $this->translations[] = $t;
+      $t->setObject($this);
+    }
+  }
 
   /**
    * Gets string representation
