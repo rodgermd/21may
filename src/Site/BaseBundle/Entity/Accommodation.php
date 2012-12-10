@@ -39,7 +39,7 @@ class Accommodation implements Translatable
   /**
    * @var string
    *
-   * @ORM\Column(name="image_filename", type="string", length=50, nullable=true)
+   * @ORM\Column(name="image_filename", type="string", length=40, nullable=true)
    */
   private $image_filename;
 
@@ -88,6 +88,12 @@ class Accommodation implements Translatable
   private $translations;
 
   /**
+   * @ORM\OneToMany(targetEntity="Site\BaseBundle\Entity\AccommodationImage", mappedBy="accommodation", cascade={"persist", "remove"})
+   * @var array $images
+   */
+  private $images;
+
+  /**
    * @Gedmo\Locale
    */
   private $locale;
@@ -95,6 +101,7 @@ class Accommodation implements Translatable
   public function __construct()
   {
     $this->translations = new ArrayCollection();
+    $this->images = new ArrayCollection();
   }
 
   public function getTranslations()
@@ -140,7 +147,7 @@ class Accommodation implements Translatable
    */
   public function __toString()
   {
-    return $this->title . $this->id;
+    return $this->title ?: $this->id;
   }
 
 
@@ -313,4 +320,37 @@ class Accommodation implements Translatable
     return $this->file;
   }
 
+
+  /**
+   * Add images
+   *
+   * @param \Site\BaseBundle\Entity\AccommodationImage $image
+   * @return Accommodation
+   */
+  public function addImage(\Site\BaseBundle\Entity\AccommodationImage $image)
+  {
+    $this->images[] = $image;
+    $image->setAccommodation($this);
+    return $this;
+  }
+
+  /**
+   * Remove images
+   *
+   * @param \Site\BaseBundle\Entity\AccommodationImage $images
+   */
+  public function removeImage(\Site\BaseBundle\Entity\AccommodationImage $images)
+  {
+    $this->images->removeElement($images);
+  }
+
+  /**
+   * Get images
+   *
+   * @return \Doctrine\Common\Collections\Collection
+   */
+  public function getImages()
+  {
+    return $this->images;
+  }
 }

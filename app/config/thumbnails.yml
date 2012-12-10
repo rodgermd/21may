@@ -43,3 +43,8 @@ liip_imagine:
       data_loader: stream.accommodation
       filters:
         thumbnail: { size: [150, 150], mode: outbound }
+    admin_image_small:
+      data_loader: stream.accommodation
+      filters:
+        thumbnail: { size: [50, 50], mode: outbound }
+

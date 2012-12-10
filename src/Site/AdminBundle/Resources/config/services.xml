@@ -36,6 +36,9 @@
       <call method="setTranslationDomain">
         <argument>SiteAdminBundle</argument>
       </call>
+      <call method="setAvailableLanguages">
+        <argument>%languages%</argument>
+      </call>
     </service>
   </services>
 </container>

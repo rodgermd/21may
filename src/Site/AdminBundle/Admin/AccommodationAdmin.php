@@ -18,7 +18,15 @@ class AccommodationAdmin extends Admin
 
   protected function configureListFields(ListMapper $list) // optional
   {
-    $list->addIdentifier('title')->add('image_filename');
+    $list
+      ->addIdentifier('title')
+      ->add('image_filename', null, array(
+      'template' => 'SiteAdminBundle:AccommodationAdmin:list_image.html.twig',
+      'label' => 'Primary image'
+    ))
+    ->add('created_at', 'datetime')
+    ->add('updated_at', 'datetime')
+    ;
   }
 
   protected function configureFormFields(FormMapper $form)
