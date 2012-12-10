@@ -23,6 +23,9 @@
       <call method="setTranslationDomain">
         <argument>SiteAdminBundle</argument>
       </call>
+      <call method="setAvailableLanguages">
+        <argument>%languages%</argument>
+      </call>
     </service>
 
     <service id="sonata.admin.route" class="Site\AdminBundle\Admin\RouteAdmin">

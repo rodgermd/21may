@@ -2,6 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: thumbnails.yml }
+    - { resource: doctrine_extensions.yml }
 
 framework:
     #esi:             ~
@@ -99,5 +100,7 @@ stof_doctrine_extensions:
       timestampable: true
       sluggable: true
       translatable: true
+
 personal_translations_widget:
   languages: %languages%
+

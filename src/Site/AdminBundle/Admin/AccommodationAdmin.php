@@ -5,10 +5,17 @@ use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
-use Site\UserBundle\Entity\User;
+use Site\BaseBundle\Entity\Accommodation;
+use Site\BaseBundle\Entity\AccommodationTranslation;
 
 class AccommodationAdmin extends Admin
 {
+  protected $languages;
+  public function setAvailableLanguages(array $languages)
+  {
+    $this->languages = $languages;
+  }
+
   protected function configureListFields(ListMapper $list) // optional
   {
     $list->addIdentifier('title')->add('image_filename');
@@ -35,6 +42,37 @@ class AccommodationAdmin extends Admin
       'method'     => 'getImageFilename'
     ));
 
-    $this->setTemplate('edit', 'SiteAdminBundle::edit.html.twig');
+  }
+
+  public function getNewInstance()
+  {
+    $object = parent::getNewInstance();
+    $object->setTranslatableLocale($this->getRequest()->getLocale());
+    foreach (array_keys($this->languages) as $culture) {
+      $object->addTranslation(new AccommodationTranslation($culture, 'title'));
+      $object->addTranslation(new AccommodationTranslation($culture, 'description'));
+      $object->addTranslation(new AccommodationTranslation($culture, 'secondary_text'));
+    }
+    return $object;
+  }
+
+  public function prePersist($object)
+  {
+    $this->updateBaseTranslation($object);
+  }
+
+  public function preUpdate($object)
+  {
+    $this->updateBaseTranslation($object);
+  }
+
+  protected function updateBaseTranslation(Accommodation $accommodation)
+  {
+    $accommodation->setTranslatableLocale($this->getRequest()->getLocale());
+    foreach($accommodation->getTranslations() as $translation)
+    {
+      /** @var AccommodationTranslation $translation */
+      $translation->updateParentFields();
+    }
   }
 }

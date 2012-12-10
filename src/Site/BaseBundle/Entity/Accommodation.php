@@ -6,18 +6,19 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
-use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\Common\Collections\ArrayCollection;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Gedmo\Translatable\Translatable;
 
 /**
  * Accommodation
  *
  * @ORM\Table(name="accommodations")
- * @ORM\Entity(repositoryClass="Site\BaseBundle\Entity\AccommodationRepository")
+ * @ORM\Entity()
  * @Vich\Uploadable
  * @Gedmo\TranslationEntity(class="Site\BaseBundle\Entity\AccommodationTranslation")
  */
-class Accommodation
+class Accommodation implements Translatable
 {
   /**
    * @var integer
@@ -31,7 +32,7 @@ class Accommodation
   /**
    * @var string
    * @Gedmo\Translatable
-   * @ORM\Column(name="title", type="string", length=255)
+   * @ORM\Column(name="title", type="string", length=255, nullable=true)
    */
   private $title;
 
@@ -81,38 +82,56 @@ class Accommodation
   private $file;
 
   /**
-   * @ORM\OneToMany(
-   *   targetEntity="AccommodationTranslation",
-   *   mappedBy="object",
-   *   cascade={"persist", "remove"}
-   * )
+   * @ORM\OneToMany(targetEntity="Site\BaseBundle\Entity\AccommodationTranslation", mappedBy="object", cascade={"persist", "remove"})
+   * @Assert\Valid(deep = true)
    */
   private $translations;
+
+  /**
+   * @Gedmo\Locale
+   */
+  private $locale;
 
   public function __construct()
   {
     $this->translations = new ArrayCollection();
   }
 
-  /**
-   * Gets Translations
-   * @return ArrayCollection
-   */
   public function getTranslations()
   {
     return $this->translations;
   }
 
-  /**
-   * Adds translation
-   * @param AccommodationTranslation $t
-   */
   public function addTranslation(AccommodationTranslation $t)
   {
     if (!$this->translations->contains($t)) {
       $this->translations[] = $t;
       $t->setObject($this);
     }
+
+    return $this;
+  }
+
+  /**
+   * Remove translations
+   * @param AccommodationTranslation $translations
+   * @return void
+   */
+  public function removeTranslation(AccommodationTranslation $translations)
+  {
+    $this->translations->removeElement($translations);
+  }
+
+  public function setTranslatableLocale($locale)
+  {
+    $this->locale = $locale;
+
+    return $this;
+  }
+
+  public function getLocale()
+  {
+    return $this->locale;
   }
 
   /**
@@ -121,7 +140,7 @@ class Accommodation
    */
   public function __toString()
   {
-    return $this->title;
+    return $this->title . $this->id;
   }
 
 
@@ -293,4 +312,5 @@ class Accommodation
   {
     return $this->file;
   }
+
 }

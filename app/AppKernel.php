@@ -28,14 +28,13 @@ class AppKernel extends Kernel
 
       new Sonata\BlockBundle\SonataBlockBundle(),
       new Sonata\CacheBundle\SonataCacheBundle(),
-//      new Sonata\jQueryBundle\SonatajQueryBundle(),
+      new Sonata\jQueryBundle\SonatajQueryBundle(),
       new Sonata\AdminBundle\SonataAdminBundle(),
       new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
 
       new Site\UserBundle\SiteUserBundle(),
       new Site\BaseBundle\SiteBaseBundle(),
       new Site\AdminBundle\SiteAdminBundle(),
-      new Site\SonataBundle\SiteSonataBundle(),
 
       new Rodgermd\SfToolsBundle\RodgermdSfToolsBundle(),
       new Ladela\PersonalTranslationsWidgetBundle\PersonalTranslationsWidgetBundle(),
