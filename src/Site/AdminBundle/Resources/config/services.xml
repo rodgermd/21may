@@ -40,5 +40,26 @@
         <argument>%languages%</argument>
       </call>
     </service>
+
+    <service id="sonata.admin.accommodation_image" class="Site\AdminBundle\Admin\AccommodationImageAdmin">
+      <tag name="sonata.admin" manager_type="orm" group="Images" label="Accommodations Images"/>
+      <argument/>
+      <argument>Site\BaseBundle\Entity\AccommodationImage</argument>
+      <argument>SiteAdminBundle:AccommodationImageAdmin</argument>
+      <call method="setTranslationDomain">
+        <argument>SiteAdminBundle</argument>
+      </call>
+    </service>
+
+    <service id="sonata.admin.route_image" class="Site\AdminBundle\Admin\RouteImageAdmin">
+      <tag name="sonata.admin" manager_type="orm" group="Images" label="Routes Images"/>
+      <argument/>
+      <argument>Site\BaseBundle\Entity\RouteImage</argument>
+      <argument>SiteAdminBundle:RouteImageAdmin</argument>
+      <call method="setTranslationDomain">
+        <argument>SiteAdminBundle</argument>
+      </call>
+    </service>
+
   </services>
 </container>
