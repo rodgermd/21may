@@ -1,0 +1,4 @@
+<li class="image" image_id="images_{{ image.id }}">
+  {{ image | uploaded_image('route_admin_preview') }}
+  <a class="btn btn-danger btn-small" href="{{ path('admin_site_base_routeimage_delete', { id: image.id }) }}">{{ 'delete?' | trans }}</a>
+</li>

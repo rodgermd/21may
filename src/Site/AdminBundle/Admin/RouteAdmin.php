@@ -24,6 +24,8 @@ class RouteAdmin extends Admin
 
   protected function configureFormFields(FormMapper $form)
   {
+    $subject = $form->getAdmin()->getSubject();
+
     $form
       ->add('accomodation')
       ->add('iframe_code')
@@ -36,9 +38,9 @@ class RouteAdmin extends Admin
         'program' => array('label' => 'Program', 'attr' => array('class' => 'tinymce', 'data-theme' => 'medium')),
         'additional' => array( 'label' => 'Additional', 'attr' => array('class' => 'tinymce', 'data-theme' => 'simple'))
       )
-    ))
+    ));
 
-    ;
+    if ($subject->getId()) $this->setTemplate('edit', 'SiteAdminBundle:RouteAdmin:edit.html.twig');
   }
 
   public function getNewInstance()
@@ -71,6 +73,14 @@ class RouteAdmin extends Admin
       /** @var RouteTranslation $translation */
       $translation->updateParentFields();
     }
+  }
+
+  public function getRoutes()
+  {
+    parent::getRoutes();
+    $this->routes->add('upload_images', $this->getRouterIdParameter() . '/upload-images');
+    $this->routes->add('order_images', $this->getRouterIdParameter() . '/order-images');
+    return $this->routes;
   }
 
 }

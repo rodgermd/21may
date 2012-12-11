@@ -75,6 +75,7 @@ class Route
 
   /**
    * @ORM\OneToMany(targetEntity="Site\BaseBundle\Entity\RouteImage", mappedBy="route", cascade={"persist", "remove"})
+   * @ORM\OrderBy({"stack_order" = "ASC"})
    * @var array $images
    */
   private $images;

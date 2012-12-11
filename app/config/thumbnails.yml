@@ -3,12 +3,21 @@ services:
     class: Site\BaseBundle\Namer\MD5FileNamer
 
   liip_imagine.data.loader.stream.accommodation:
-          class: "%liip_imagine.data.loader.stream.class%"
-          arguments:
-              - "@liip_imagine"
-              - 'gaufrette://accommodation_fs/'
-          tags:
-              - { name: 'liip_imagine.data.loader', loader: 'stream.accommodation' }
+    class: "%liip_imagine.data.loader.stream.class%"
+    arguments:
+      - "@liip_imagine"
+      - 'gaufrette://accommodation_fs/'
+    tags:
+      - { name: 'liip_imagine.data.loader', loader: 'stream.accommodation' }
+
+  liip_imagine.data.loader.stream.route:
+    class: "%liip_imagine.data.loader.stream.class%"
+    arguments:
+      - "@liip_imagine"
+      - 'gaufrette://route_fs/'
+    tags:
+      - { name: 'liip_imagine.data.loader', loader: 'stream.route' }
+
 
 knp_gaufrette:
   stream_wrapper: ~
@@ -16,10 +25,15 @@ knp_gaufrette:
     accommodation:
       local:
         directory: %kernel.root_dir%/../web/uploads/accomodation
+    route:
+      local:
+        directory: %kernel.root_dir%/../web/uploads/route
 
   filesystems:
     accommodation_fs:
       adapter:    accommodation
+    route_fs:
+      adapter:    route
 
 vich_uploader:
   db_driver: orm
@@ -29,6 +43,10 @@ vich_uploader:
     accommodation:
       uri_prefix: /
       upload_destination: accommodation_fs
+      namer: uploader.namer.md5
+    route:
+      uri_prefix: /
+      upload_destination: route_fs
       namer: uploader.namer.md5
 
 liip_imagine:
@@ -47,4 +65,13 @@ liip_imagine:
       data_loader: stream.accommodation
       filters:
         thumbnail: { size: [50, 50], mode: outbound }
+
+    route_image_small:
+      data_loader: stream.route
+      filters:
+        thumbnail: { size: [50, 50], mode: outbound }
+    route_admin_preview:
+      data_loader: stream.route
+      filters:
+        thumbnail: { size: [150, 150], mode: outbound }
 
