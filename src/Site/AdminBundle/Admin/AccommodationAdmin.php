@@ -50,6 +50,7 @@ class AccommodationAdmin extends Admin
       'method'     => 'getImageFilename'
     ));
 
+    if ($subject->getId()) $this->setTemplate('edit', 'SiteAdminBundle:AccommodationAdmin:edit.html.twig');
   }
 
   public function getNewInstance()
@@ -82,5 +83,13 @@ class AccommodationAdmin extends Admin
       /** @var AccommodationTranslation $translation */
       $translation->updateParentFields();
     }
+  }
+
+  public function getRoutes()
+  {
+    parent::getRoutes();
+    $this->routes->add('upload_images', $this->getRouterIdParameter() . '/upload-images');
+    $this->routes->add('order_images', $this->getRouterIdParameter() . '/order-images');
+    return $this->routes;
   }
 }

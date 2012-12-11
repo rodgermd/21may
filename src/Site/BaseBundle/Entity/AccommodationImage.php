@@ -33,7 +33,7 @@ class AccommodationImage
   /**
    * @var string
    *
-   * @ORM\Column(name="image_filename", type="string", length=40)
+   * @ORM\Column(name="filename", type="string", length=40)
    */
   private $filename;
 
@@ -43,7 +43,7 @@ class AccommodationImage
    *     maxSize="10M",
    *     mimeTypes={"image/png", "image/jpeg", "image/pjpeg"}
    * )
-   * @Vich\UploadableField(mapping="accommodation", fileNameProperty="image_filename")
+   * @Vich\UploadableField(mapping="accommodation", fileNameProperty="filename")
    */
   private $file;
 

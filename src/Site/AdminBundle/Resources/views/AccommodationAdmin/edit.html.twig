@@ -1,0 +1,53 @@
+{% extends 'SonataAdminBundle:CRUD:edit.html.twig' %}
+{% use "SiteAdminBundle::_file_upload_blocks.html.twig" %}
+
+{% block sonata_admin_content %}
+  {{ parent() }}
+  {% set item = object %}
+  <div id="images-holder">
+    <fieldset>
+      <legend>{{ 'Already uploaded images' | trans }}</legend>
+
+      <ul id="images-list" update="{{ path('admin_site_base_accommodation_order_images', { 'id' : item.id }) }}">
+        {% spaceless %}
+          {% for image in item.images %}
+            {% include "SiteAdminBundle:Accommodation:image.html.twig" %}
+          {% else %}
+            <p>{{ 'Nothing uploaded yet' }}</p>
+          {% endfor %}
+        {% endspaceless %}
+
+        {% if item.images | length %}
+          <p>
+            <button class="btn btn-primary" id="save-uploaded-images-changes" data-loading-text="{{ 'Saving...' | trans }}">{{ 'Save changes' | trans }}</button>
+          </p>
+        {% endif %}
+      </ul>
+    </fieldset>
+
+    <fieldset>
+      <legend>{{ 'Upload images' | trans }}</legend>
+
+
+      {% set upload_form_action = path('admin_site_base_accommodation_upload_images', { 'id' : item.id }) %}
+      {{ block('upload_form') }}
+      {{ block('upload_modal_gallery') }}
+      {{ block('upload_templates') }}
+    </fieldset>
+
+  </div>
+{% endblock sonata_admin_content %}
+
+{% block javascripts %}
+  {{ parent() }}
+  <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js" type="text/javascript"></script>
+  {{ block('upload_template') }}
+  {{ block('upload_scripts') }}
+  <script src="{{ asset('bundles/siteadmin/js/handle_images.js') }}" type="text/javascript"></script>
+{% endblock javascripts %}
+
+{% block stylesheets %}
+  {{ parent() }}
+  {{ block('upload_stylesheets') }}
+  <link rel="stylesheet" href="{{ asset('bundles/siteadmin/css/handle_images.css') }}"/>
+{% endblock stylesheets %}
