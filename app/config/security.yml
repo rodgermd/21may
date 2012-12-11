@@ -29,8 +29,9 @@ security:
             check_path: /user/login_check
             login_path: /user/login
             use_referer: true
-        logout:       true
-        anonymous:    true
+        logout:
+          path: /user/logout
+        anonymous: true
         remember_me:
           key:      %secret%
           lifetime: 604800
