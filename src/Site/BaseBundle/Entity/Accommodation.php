@@ -89,6 +89,7 @@ class Accommodation implements Translatable
 
   /**
    * @ORM\OneToMany(targetEntity="Site\BaseBundle\Entity\AccommodationImage", mappedBy="accommodation", cascade={"persist", "remove"})
+   * @ORM\OrderBy({"stack_order" = "ASC"})
    * @var array $images
    */
   private $images;

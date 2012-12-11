@@ -41,7 +41,9 @@ class AccommodationAdminController extends \Sonata\AdminBundle\Controller\CRUDCo
         'url'  => $this->get('vich_uploader.templating.helper.uploader_helper')->asset($image, 'file'),
         'name' => $file->getClientOriginalName(),
         'type' => $file->getMimeType(),
-        'size' => $file->getSize()
+        'size' => $file->getSize(),
+        'delete_url' => $this->generateUrl('admin_site_base_accommodationimage_delete', array('id' => $image->getId())),
+        'delete_type' => 'DELETE'
       );
       $result['thumbnail_url'] = $this->get('liip_imagine.templating.helper')->filter($result['url'], 'admin_image_small');
 
@@ -53,8 +55,24 @@ class AccommodationAdminController extends \Sonata\AdminBundle\Controller\CRUDCo
   /**
    * @Method("POST")
    */
-  public function orderImagesAction()
+  public function orderImagesAction(Accommodation $accommodation)
   {
+    $order = $this->getRequest()->get('images', array());
+    $images = $accommodation->getImages();
+    $em = $this->getDoctrine()->getManager();
 
+    $i = 1;
+    foreach($order as $id)
+    {
+      foreach($images as $image)
+      {
+        /** @var AccommodationImage $image */
+        if ($image->getId() ==  $id) $image->setStackOrder($i++) && $em->persist($image);
+      }
+    }
+
+    $em->flush();
+
+    return new Response('ok');
   }
 }

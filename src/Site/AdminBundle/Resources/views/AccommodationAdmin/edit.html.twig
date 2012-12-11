@@ -11,7 +11,7 @@
       <ul id="images-list" update="{{ path('admin_site_base_accommodation_order_images', { 'id' : item.id }) }}">
         {% spaceless %}
           {% for image in item.images %}
-            {% include "SiteAdminBundle:Accommodation:image.html.twig" %}
+            {% include "SiteAdminBundle:AccommodationAdmin:image.html.twig" %}
           {% else %}
             <p>{{ 'Nothing uploaded yet' }}</p>
           {% endfor %}
@@ -49,5 +49,4 @@
 {% block stylesheets %}
   {{ parent() }}
   {{ block('upload_stylesheets') }}
-  <link rel="stylesheet" href="{{ asset('bundles/siteadmin/css/handle_images.css') }}"/>
 {% endblock stylesheets %}
