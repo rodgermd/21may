@@ -14,7 +14,6 @@ class LoadAccommodationData implements FixtureInterface
    */
   public function load(ObjectManager $manager)
   {
-
     $accommodation1 = new Accommodation();
     $accommodation1
       ->setTitle('title en')

@@ -5,6 +5,7 @@ namespace Site\BaseBundle\Listener;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Gedmo\Translatable\TranslatableListener;
 
 class DoctrineExtensionListener implements ContainerAwareInterface
 {
@@ -20,6 +21,7 @@ class DoctrineExtensionListener implements ContainerAwareInterface
 
   public function onLateKernelRequest(GetResponseEvent $event)
   {
+    /** @var TranslatableListener $translatable  */
     $translatable = $this->container->get('gedmo.listener.translatable');
     $translatable->setTranslatableLocale($event->getRequest()->getLocale());
   }

@@ -14,7 +14,7 @@ use Gedmo\Translatable\Translatable;
  * Accommodation
  *
  * @ORM\Table(name="accommodations")
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="Site\BaseBundle\Entity\AccommodationRepository")
  * @Vich\Uploadable
  * @Gedmo\TranslationEntity(class="Site\BaseBundle\Entity\AccommodationTranslation")
  */
@@ -70,6 +70,13 @@ class Accommodation implements Translatable
    * @ORM\Column(name="updated_at", type="datetime")
    */
   private $updated_at;
+
+  /**
+   * @Gedmo\Slug(fields={"title"})
+   * @Gedmo\Translatable
+   * @ORM\Column(length=128, unique=true)
+   */
+  private $slug;
 
   /**
    * @var UploadedFile $file
@@ -298,6 +305,15 @@ class Accommodation implements Translatable
   public function getUpdatedAt()
   {
     return $this->updated_at;
+  }
+
+  /**
+   * Gets slug
+   * @return mixed
+   */
+  public function getSlug()
+  {
+    return $this->slug;
   }
 
   /**
