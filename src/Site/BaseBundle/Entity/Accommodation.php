@@ -73,7 +73,6 @@ class Accommodation implements Translatable
 
   /**
    * @Gedmo\Slug(fields={"title"})
-   * @Gedmo\Translatable
    * @ORM\Column(length=128, unique=true)
    */
   private $slug;
@@ -262,19 +261,6 @@ class Accommodation implements Translatable
   }
 
   /**
-   * Set created_at
-   *
-   * @param \DateTime $createdAt
-   * @return Route
-   */
-  public function setCreatedAt($createdAt)
-  {
-    $this->created_at = $createdAt;
-
-    return $this;
-  }
-
-  /**
    * Get created_at
    *
    * @return \DateTime
@@ -282,19 +268,6 @@ class Accommodation implements Translatable
   public function getCreatedAt()
   {
     return $this->created_at;
-  }
-
-  /**
-   * Set updated_at
-   *
-   * @param \DateTime $updatedAt
-   * @return Route
-   */
-  public function setUpdatedAt($updatedAt)
-  {
-    $this->updated_at = $updatedAt;
-
-    return $this;
   }
 
   /**

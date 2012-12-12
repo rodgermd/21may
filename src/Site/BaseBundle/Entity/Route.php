@@ -68,6 +68,12 @@ class Route
   private $updated_at;
 
   /**
+   * @Gedmo\Slug(fields={"title"})
+   * @ORM\Column(length=128, unique=true)
+   */
+  private $slug;
+
+  /**
    * @ORM\OneToMany(targetEntity="Site\BaseBundle\Entity\RouteTranslation", mappedBy="object", cascade={"persist", "remove"})
    * @Assert\Valid(deep = true)
    */
@@ -243,19 +249,6 @@ class Route
   }
 
   /**
-   * Set created_at
-   *
-   * @param \DateTime $createdAt
-   * @return Route
-   */
-  public function setCreatedAt($createdAt)
-  {
-    $this->created_at = $createdAt;
-
-    return $this;
-  }
-
-  /**
    * Get created_at
    *
    * @return \DateTime
@@ -263,19 +256,6 @@ class Route
   public function getCreatedAt()
   {
     return $this->created_at;
-  }
-
-  /**
-   * Set updated_at
-   *
-   * @param \DateTime $updatedAt
-   * @return Route
-   */
-  public function setUpdatedAt($updatedAt)
-  {
-    $this->updated_at = $updatedAt;
-
-    return $this;
   }
 
   /**
@@ -309,6 +289,15 @@ class Route
   public function getAdditional()
   {
     return $this->additional;
+  }
+
+  /**
+   * Gets slug
+   * @return mixed
+   */
+  public function getSlug()
+  {
+    return $this->slug;
   }
 
   /**
