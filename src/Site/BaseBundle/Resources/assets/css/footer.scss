@@ -1,0 +1,68 @@
+#footer {
+  @include font-bold;
+  text-shadow: 0 0 2px #000;
+  color: #fff;
+  $footer-padding-top: 32px;
+  height: 584px - $footer-padding-top;
+  background: url('/images/footer.bg.png') no-repeat;
+  position: relative;
+  z-index: 2;
+  margin-top: -20px;
+  padding-top: $footer-padding-top;
+}
+
+#footer-address {
+  margin-top: 100px;
+  text-align: right;
+  a {
+    &:hover { color: #ff4500; }
+    color: #fff;
+  }
+}
+
+#secondary-menu {
+  td {
+    text-align: center;
+  }
+  a {
+    $width: 262px;
+    $height: 164px;
+    @include inline-block;
+    width: $width;
+    height: $height;
+    text-align: center;
+    position: relative;
+    color: #fff;
+    text-decoration: none;
+    border: 2px #000 solid;
+
+    &.menu-history {
+      background: url('/images/history.image.png');
+    }
+    &.menu-about-us {
+      background: url('/images/nosotros.image.png');
+    }
+    &.menu-blog {
+      background: url('/images/blog.image.png');
+    }
+
+    img {
+      display: none;
+      position: absolute;
+      width: 67px;
+      height: 67px;
+      top: $height / 2;
+      left: $width / 2;
+      margin-left: -33px;
+      margin-top: -33px;
+    }
+    &:hover img {
+      display: block;
+    }
+
+    span {
+      @include inline-block;
+      margin-top: $height - 30;
+    }
+  }
+}
