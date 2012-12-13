@@ -13,6 +13,15 @@ use Site\BaseBundle\Entity\AccommodationRepository;
  */
 class AccommodationController extends Controller
 {
+
+  /**
+   * @Route("/", name="accommodations")
+   * @Route("/", name="routes")
+   */
+  public function indexAction()
+  {
+
+  }
   /**
    * @Route("/{slug}", name="accommodation")
    * @Template

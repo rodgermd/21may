@@ -12,11 +12,27 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class PageController extends Controller
 {
   /**
-   * @Route("/", name="index")
+   * @Route("/", name="homepage")
    * @Template()
    */
   public function indexAction()
   {
     return array();
+  }
+
+  /**
+   * @Route("/page/about-us", name="pages.about_us")
+   */
+  public function aboutUsAction()
+  {
+
+  }
+
+  /**
+   * @Route("/page/contacts", name="pages.contacts")
+   */
+  public function contactsAction()
+  {
+
   }
 }

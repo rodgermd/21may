@@ -1,9 +1,77 @@
+@import "compass/css3";
+@import "backgrounds.scss";
 @import url(http://fonts.googleapis.com/css?family=Ubuntu:400,500,700&subset=latin,latin-ext);
+
 $light: #efefef;
 $green: green;
+$font: Ubuntu, Helvetica, Arial, sans-serif;
 
-body {
-  background-color: $light;
+@mixin font-light {
+  font-family: $font;
+  font-weight: 400;
 }
 
-p { color: $green}
+@mixin font-regular {
+  font-family: $font;
+  font-weight: 500;
+}
+
+@mixin font-bold {
+  font-family: $font;
+  font-weight: 700;
+}
+
+html {
+  background-color: black;
+  min-height: 100%;
+}
+
+body {
+  margin: 0 auto;
+  width: 1280px;
+  border: #333 solid;
+  border-width: 0 1px;
+}
+
+#site-main-wrapper {
+  background: url('/images/body.bg.jpg') 100% 0 no-repeat;
+  height: 1000px;
+}
+
+#header {
+  @include font-bold;
+  a {
+    color: #fff;
+  }
+}
+
+#header-menu {
+  a {
+    display: block;
+    text-decoration: none;
+    @include bg_checks_black_light;
+    &:hover {
+      @include bg_checks_red;
+    }
+  }
+  li {
+    @include inline-block;
+    margin: 0 1px;
+  }
+  li.single > a {
+    padding: 20px 15px;
+    height: 80px;
+  }
+  li.double {
+    vertical-align: top;
+    ul { margin: 0; padding: 0}
+    li {
+      display: block;
+      &:first-child { margin-bottom: 2px;}
+    }
+    a {
+      padding: 20px 27px;
+      height: 19px;
+    }
+  }
+}

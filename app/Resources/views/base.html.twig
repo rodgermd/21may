@@ -2,19 +2,30 @@
 <html>
 <head>
   <meta charset="UTF-8"/>
-  <title>{% block title %}Welcome!{% endblock %}</title>
+  <title>{% block title %}21 May{% endblock %}</title>
   {% block stylesheets %}
-    {% stylesheets "@SiteBaseBundle/Resources/assets/css/base.scss" filter="compass, yui_css"%}
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.9.0/build/reset/reset-min.css">
+    <link rel="stylesheet" href="{{ asset('bundles/sonataadmin/bootstrap/css/bootstrap.css') }}"/>
+    {% stylesheets
+    "@SiteBaseBundle/Resources/assets/css/base.scss"
+    filter="compass, ?yui_css" %}
     <link rel="stylesheet" href="{{ asset_url }}"/>
     {% endstylesheets %}
   {% endblock %}
   <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 </head>
 <body>
-{% block body %}
-  {% block content %}
-  {% endblock content %}
+<div id="overall-wrapper">
+  <div class="sitewidth" id="site-main-wrapper">
+    {% block selected_menu %}{% endblock selected_menu %}
+    {% include "::header.html.twig" %}
+    {% block content %}
+    {% endblock content %}
+  </div>
+  {% include "::footer.html.twig" %}
+</div>
+{% block javascripts %}
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 {% endblock %}
-{% block javascripts %}{% endblock %}
 </body>
 </html>
