@@ -1,5 +1,5 @@
 @import "compass/css3";
-@import "backgrounds.scss";
+@import "backgrounds";
 @import url(http://fonts.googleapis.com/css?family=Ubuntu:400,500,700&subset=latin,latin-ext);
 
 $light: #efefef;
@@ -38,40 +38,72 @@ body {
   height: 1000px;
 }
 
-#header {
-  @include font-bold;
-  a {
-    color: #fff;
-  }
+.site-width {
+  width: 937px;
+  margin: 0 auto;
 }
 
-#header-menu {
+#content-wrapper {
+  padding: 67px 0;
+}
+
+@import "header";
+
+#footer {
+  @include font-bold;
+  text-shadow: 0 0 2px #000;
+  $footer-padding-top: 32px;
+  height: 584px - $footer-padding-top;
+  background: url('/images/footer.bg.png') no-repeat;
+  position: relative;
+  z-index: 2;
+  margin-top: -20px;
+  padding-top: $footer-padding-top;
+}
+
+#secondary-menu {
+  td {
+    text-align: center;
+  }
   a {
-    display: block;
-    text-decoration: none;
-    @include bg_checks_black_light;
-    &:hover {
-      @include bg_checks_red;
-    }
-  }
-  li {
+    $width: 262px;
+    $height: 164px;
     @include inline-block;
-    margin: 0 1px;
-  }
-  li.single > a {
-    padding: 20px 15px;
-    height: 80px;
-  }
-  li.double {
-    vertical-align: top;
-    ul { margin: 0; padding: 0}
-    li {
-      display: block;
-      &:first-child { margin-bottom: 2px;}
+    width: $width;
+    height: $height;
+    text-align: center;
+    position: relative;
+    color: #fff;
+    text-decoration: none;
+    border: 2px #000 solid;
+
+    &.menu-history {
+      background: url('/images/history.image.png');
     }
-    a {
-      padding: 20px 27px;
-      height: 19px;
+    &.menu-about-us {
+      background: url('/images/nosotros.image.png');
+    }
+    &.menu-blog {
+      background: url('/images/blog.image.png');
+    }
+
+    img {
+      display: none;
+      position: absolute;
+      width: 67px;
+      height: 67px;
+      top: $height / 2;
+      left: $width / 2;
+      margin-left: -33px;
+      margin-top: -33px;
+    }
+    &:hover img {
+      display: block;
+    }
+
+    span {
+      @include inline-block;
+      margin-top: $height - 30;
     }
   }
 }

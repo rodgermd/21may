@@ -16,11 +16,15 @@
 </head>
 <body>
 <div id="overall-wrapper">
-  <div class="sitewidth" id="site-main-wrapper">
-    {% block selected_menu %}{% endblock selected_menu %}
-    {% include "::header.html.twig" %}
-    {% block content %}
-    {% endblock content %}
+  <div id="site-main-wrapper">
+    <div class="site-width">
+      {% block selected_menu %}{% endblock selected_menu %}
+      {% include "::header.html.twig" %}
+      <div id="content-wrapper">
+        {% block content %}
+        {% endblock content %}
+      </div>
+    </div>
   </div>
   {% include "::footer.html.twig" %}
 </div>

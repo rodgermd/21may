@@ -29,6 +29,14 @@ class PageController extends Controller
   }
 
   /**
+   * @Route("/page/history", name="pages.history")
+   */
+  public function historyAction()
+  {
+
+  }
+
+  /**
    * @Route("/page/contacts", name="pages.contacts")
    */
   public function contactsAction()

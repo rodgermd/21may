@@ -1,0 +1,41 @@
+#header {
+  @include font-bold;
+  a {
+    color: #fff;
+  }
+}
+
+#header-menu {
+  border-collapse: separate;
+  td {
+    padding: 0 1px;
+  }
+  a {
+    display: block;
+    padding: 20px 15px;
+    height: 80px;
+    text-decoration: none;
+    @include bg_checks_black_light;
+    &:hover {
+      @include bg_checks_red;
+    }
+  }
+  a.single {
+    padding: 20px 27px;
+    height: 19px;
+    margin-bottom: 2px;
+  }
+  #link-to-home {
+    @include bg_checks_black_dark;
+    padding: 14px 25px;
+    height: 92px;
+
+    &:hover {
+      @include bg_checks_red;
+    }
+    text-align: center;
+  }
+  tr:last-child a.single {
+    margin-bottom: 0;
+  }
+}
