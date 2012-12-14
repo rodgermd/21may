@@ -1,14 +1,14 @@
 @import "compass/css3";
 @import "backgrounds";
-@import url(http://fonts.googleapis.com/css?family=Ubuntu:400,500,700&subset=latin,latin-ext);
+@import url("/fonts/stylesheet.css");
 
 $light: #efefef;
 $green: green;
-$font: Ubuntu, Helvetica, Arial, sans-serif;
+$font: proxima_nova_lt, Helvetica, Arial, sans-serif;
 
 @mixin font-light {
   font-family: $font;
-  font-weight: 400;
+  font-weight: 200;
 }
 
 @mixin font-regular {
@@ -18,7 +18,7 @@ $font: Ubuntu, Helvetica, Arial, sans-serif;
 
 @mixin font-bold {
   font-family: $font;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 html {
