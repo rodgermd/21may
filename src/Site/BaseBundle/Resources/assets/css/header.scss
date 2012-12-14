@@ -1,3 +1,4 @@
+
 #header {
   @include font-bold;
   a {
@@ -6,9 +7,9 @@
 }
 
 #header-menu {
-  border-collapse: separate;
-  td {
-    padding: 0 1px;
+  > li {
+    margin: 0 1px;
+    @include inline-block;
   }
   a {
     display: block;

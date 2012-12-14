@@ -1,0 +1,6 @@
+services:
+  site.twig.helper.image:
+    class: Site\BaseBundle\Twig\ImageHelper
+    arguments: [@service_container, @liip_imagine.twig.extension]
+    tags:
+    - { name: twig.extension }

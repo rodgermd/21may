@@ -1,0 +1,7 @@
+<ul class="accommodations-list">
+  {% spaceless %}
+  {% for accommodation in accommodations %}
+  <li>{% include "SiteBaseBundle:Accommodation:list_item.html.twig" %}</li>
+  {% endfor %}
+  {% endspaceless %}
+</ul>

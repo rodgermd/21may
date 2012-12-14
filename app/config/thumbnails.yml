@@ -53,6 +53,11 @@ liip_imagine:
   driver: imagick
 
   filter_sets:
+
+  ################
+  # ACCOMMODATIONS
+  ################
+
     accomodation_small:
       data_loader: stream.accommodation
       filters:
@@ -65,6 +70,15 @@ liip_imagine:
       data_loader: stream.accommodation
       filters:
         thumbnail: { size: [50, 50], mode: outbound }
+
+    menu_dropdown:
+      data_loader: stream.accommodation
+      filters:
+        thumbnail: { size: [255, 92], mode: outbound }
+
+  ################
+  # ROUTES
+  ################
 
     route_image_small:
       data_loader: stream.route

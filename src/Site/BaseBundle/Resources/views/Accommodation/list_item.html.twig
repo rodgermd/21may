@@ -1,0 +1,4 @@
+<a href="{{ path('accommodation', {slug: accommodation.slug}) }}">
+  <span class="title">{{ accommodation }}</span>
+  {{ accommodation | uploaded_image(filter) }}
+</a>

@@ -1,0 +1,9 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}21 May - {{ 'Accommodations' | trans }}{% endblock title %}
+{% block selected_menu %}accommodations{% endblock selected_menu %}
+
+{% block content %}
+  <h1>{{ 'Accommodations' | trans }}</h1>
+  {% include "SiteBaseBundle:Accommodations:list.html.twig" with { filter: 'menu_dropdown' }%}
+{% endblock content %}

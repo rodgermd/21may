@@ -1,31 +1,34 @@
 {% set selected_menu = block('selected_menu') | default('home') %}
+
 <div id="header">
   {% spaceless %}
-    <table id="header-menu" width="100%">
-      <tbody>
-      <tr>
-        <td rowspan="2">
-          <a href="{{ path('homepage') }}" title="{{ 'Home page' | trans }}" id="link-to-home">
-            <img src="/images/logo.white.png" width="182" height="92" id="logo-white"/>
-          </a>
-        </td>
-        <td rowspan="2" {% if selected_menu == 'accommodation' %}class="active"{% endif %}>
-          <a href="{{ path('accommodations') }}">{{ 'Accommodation' | trans }}</a>
-        </td>
-        <td rowspan="2" {% if selected_menu == 'routes' %}class="active"{% endif %}>
-          <a href="{{ path('routes') }}">{{ 'Accommodation + Routes' | trans }}</a>
-        </td>
-        <td rowspan="2" {% if selected_menu == 'about-us' %}class="active"{% endif %}>
-          <a href="{{ path('pages.about_us') }}">{{ 'About us' | trans }}</a>
-        </td>
-        <td{% if selected_menu == 'contacts' %} class="active"{% endif %}>
-          <a class="single" href="{{ path('pages.contacts') }}">{{ 'Contacts' | trans }}</a>
-        </td>
-      </tr>
-      <tr>
-        <td><a href="/blog" class="single">{{ 'Blog' | trans }}</a></td>
-      </tr>
-      </tbody>
-    </table>
+    <ul id="header-menu">
+      <li id="menu-home">
+        <a href="{{ path('homepage') }}" title="{{ 'Home page' | trans }}" id="link-to-home">
+          <img src="/images/logo.white.png" width="182" height="92" id="logo-white"/>
+        </a>
+      </li>
+      <li id="menu-accommodations" class="has-submenu{% if selected_menu == 'accommodation' %} active{% endif %}">
+        <a href="{{ path('accommodations') }}">{{ 'Accommodation' | trans }}</a>
+        {% render "SiteBaseBundle:Accommodation:menu_list" %}
+      </li>
+      <li id="menu-routes" class="has-submenu{% if selected_menu == 'routes' %} active{% endif %}">
+        <a href="{{ path('routes') }}">{{ 'Routes' | trans }} + <br/>{{ 'Accommodation' | trans }}</a>
+
+      </li>
+      <li id="menu-about-us" {% if selected_menu == 'about-us' %}class="active"{% endif %}>
+        <a href="{{ path('pages.about_us') }}">{{ 'About us' | trans }}</a>
+      </li>
+      <li id="menu-contacts-blog" class="split">
+        <ul>
+          <li{% if selected_menu == 'contacts' %} class="active"{% endif %}>
+            <a href="{{ path('pages.contacts') }}">{{ 'Contacts' | trans }}</a>
+          </li>
+          <li{% if selected_menu == 'blog' %} class="active"{% endif %}>
+            <a href="/blog">{{ 'Blog' | trans }}</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
   {% endspaceless %}
 </div>

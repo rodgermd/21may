@@ -17,10 +17,20 @@ class AccommodationController extends Controller
   /**
    * @Route("/", name="accommodations")
    * @Route("/", name="routes")
+   * @Template
    */
   public function indexAction()
   {
+    $accommodations = $this->getDoctrine()->getRepository("SiteBaseBundle:Accommodation")->getSorted();
+    return compact('accommodations');
+  }
 
+  /**
+   * @Template
+   */
+  public function menu_listAction()
+  {
+    return $this->indexAction();
   }
   /**
    * @Route("/{slug}", name="accommodation")

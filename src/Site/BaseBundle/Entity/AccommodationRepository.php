@@ -12,5 +12,13 @@ use Doctrine\ORM\EntityRepository;
  */
 class AccommodationRepository extends EntityRepository
 {
+  /**
+   * Gets sorted accommodations
+   * @return array
+   */
+  public function getSorted()
+  {
+    return $this->createQueryBuilder('a')->orderBy('a.title', 'asc')->getQuery()->getResult();
+  }
 }
 
