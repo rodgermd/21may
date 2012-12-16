@@ -76,6 +76,11 @@ liip_imagine:
       filters:
         thumbnail: { size: [255, 92], mode: outbound }
 
+    selected_for_homepage:
+      data_loader: stream.accommodation
+      filters:
+        thumbnail: { size: [375, 137], mode: outbound }
+
   ################
   # ROUTES
   ################

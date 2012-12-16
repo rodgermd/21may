@@ -42,7 +42,7 @@ stfalcon_tinymce:
 assetic:
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        [SonataAdminBundle]
+    bundles:        [SonataAdminBundle, SiteBaseBundle]
     #java: /usr/bin/java
     filters:
       sass:    ~

@@ -17,7 +17,8 @@ class PageController extends Controller
    */
   public function indexAction()
   {
-    return array();
+    $selected_accommodations = $this->getDoctrine()->getRepository('SiteBaseBundle:Accommodation')->getHomepageSelected();
+    return compact('selected_accommodations');
   }
 
   /**

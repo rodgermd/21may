@@ -1,26 +1,4 @@
-@import "compass/css3";
-@import "backgrounds";
-@import url("/fonts/stylesheet.css");
-
-$light: #efefef;
-$green: green;
-$orange: #dc3800;
-$font: proxima_nova_lt, Helvetica, Arial, sans-serif;
-
-@mixin font-light {
-  font-family: $font;
-  font-weight: 200;
-}
-
-@mixin font-regular {
-  font-family: $font;
-  font-weight: 500;
-}
-
-@mixin font-bold {
-  font-family: $font;
-  font-weight: 800;
-}
+@import "definitions";
 
 html {
   background-color: black;
@@ -46,6 +24,7 @@ body {
 
 #content-wrapper {
   padding: 67px 0;
+  height: 1000px - 67px *2;
 }
 
 //@import "header";
@@ -56,7 +35,7 @@ body {
   @include font-bold;
   a {
     color: #fff;
-    text-shadow: 0 0 1px #000;
+    @include text-shadow;
   }
 }
 

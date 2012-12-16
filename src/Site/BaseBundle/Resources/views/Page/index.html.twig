@@ -1,5 +1,16 @@
 {% extends "::base.html.twig" %}
 
 {% block content %}
-
+<div id="homepage-content">
+  {% include "SiteBaseBundle:Accommodation:_selected_for_homepage.html.twig" %}
+</div>
 {% endblock content %}
+
+{% block stylesheets %}
+  {{ parent() }}
+  {% stylesheets
+  "@SiteBaseBundle/Resources/assets/css/homepage.scss"
+  filter="compass, ?yui_css" %}
+  <link rel="stylesheet" href="{{ asset_url }}"/>
+  {% endstylesheets %}
+{% endblock stylesheets %}

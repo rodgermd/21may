@@ -1,0 +1,11 @@
+<ul id="selected-for-homepage">
+  {% for accommodation in selected_accommodations %}
+    <li>
+      <a href="{{ path('accommodation', {slug: accommodation.slug}) }}">
+        <span class="title">{{ accommodation }}</span>
+        <span class="see-more">{{ 'See details and routes' }} ▸</span>
+        {{ accommodation | uploaded_image('selected_for_homepage') }}
+      </a>
+    </li>
+  {% endfor %}
+</ul>
