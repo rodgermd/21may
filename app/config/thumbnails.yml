@@ -80,6 +80,15 @@ liip_imagine:
       data_loader: stream.accommodation
       filters:
         thumbnail: { size: [375, 137], mode: outbound }
+    accommodation_big:
+      data_loader: stream.accommodation
+      filters:
+        thumbnail: { size: [745, 252], mode: outbound }
+    accommodation_images_list:
+      data_loader: stream.accommodation
+      filters:
+        thumbnail: { size: [120, 120], mode: outbound }
+
 
   ################
   # ROUTES

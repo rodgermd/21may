@@ -42,7 +42,7 @@ class AccommodationController extends Controller
   {
     /** @var AccommodationRepository $repository  */
     $repository = $this->getDoctrine()->getRepository('SiteBaseBundle:Accommodation');
-    $accommodation = $repository->findUsingSlug($slug);
+    $accommodation = $repository->findOneBySlug($slug);
     return compact('accommodation');
   }
 }

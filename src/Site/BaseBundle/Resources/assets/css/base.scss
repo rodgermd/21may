@@ -10,6 +10,8 @@ body {
   width: 1280px;
   border: #333 solid;
   border-width: 0 1px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
 }
 
 #site-main-wrapper {
@@ -40,6 +42,7 @@ body {
 }
 
 #header-menu {
+  text-transform: uppercase;
   a {
     text-decoration: none;
     display: block;
@@ -56,6 +59,7 @@ body {
         margin: 0;
         padding: 0;
         position: absolute;
+        z-index: 20;
         border-top: 3px transparent solid;
         > li {
           @include inline-block;
@@ -94,16 +98,14 @@ body {
     }
   }
   #menu-home {
-    width: 291px;
+    width: 294px;
   }
-  #menu-accommodations, #menu-routes {
-    width: 184px;
-  }
-  #menu-about-us {
-    width: 118px;
+  #menu-accommodations, #menu-routes, #menu-about-us {
+    width: 148px;
   }
   #menu-contacts-blog {
-    width: 150px;
+    width: 190px;
+    margin-right: 0;
   }
   > li, li.split li {
    > a {
@@ -130,6 +132,18 @@ body {
   tr:last-child a.single {
     margin-bottom: 0;
   }
+}
+
+.book-item {
+  @include font-bold;
+  display: block;
+  background-color: $red;
+  text-transform: uppercase;
+  color: #fff;
+  text-align: center;
+  padding: 12px;
+  letter-spacing: 3px;
+  text-decoration: none;
 }
 
 @import "footer";

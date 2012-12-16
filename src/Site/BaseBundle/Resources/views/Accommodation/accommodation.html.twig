@@ -1,4 +1,53 @@
 {% extends "::base.html.twig" %}
+
+{% block title %}{{ parent() }} - {{ accommodation.title }}{% endblock %}
+
 {% block content %}
-{{ accommodation.title }}
+  <div id="accommodation-container">
+    <div class="row">
+      <div class="column-right">
+        <a href="{{ path('book.accommodation', { slug: accommodation.slug }) }}"
+           class="book-item">{{ 'Book' | trans }}</a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="column-left">
+        <div id="accommodation-primary">
+          <h1>{{ accommodation.title }}</h1>
+
+          <div id="accommodation-description">
+            {{ accommodation.description | raw }}
+          </div>
+        </div>
+      </div>
+      <div class="column-right"></div>
+    </div>
+
+    <div class="row">
+      <div class="column-left">
+        {{ accommodation | uploaded_image('accommodation_big') }}
+        {% if accommodation.images | length %}
+          <ul class="images-list">
+            {% for image in accommodation.images %}
+              <li>{{ image | uploaded_image('accommodation_images_list') }}</li>
+            {% endfor %}
+          </ul>
+          <div id="secondary-text-container">
+            {{ accommodation.secondaryText | raw }}
+          </div>
+        {% endif %}
+      </div>
+      <div class="column-right"></div>
+    </div>
+  </div>
 {% endblock content %}
+
+{% block stylesheets %}
+  {{ parent() }}
+  {% stylesheets
+  "@SiteBaseBundle/Resources/assets/css/accommodation.scss"
+  filter="compass, ?yui_css" %}
+  <link rel="stylesheet" href="{{ asset_url }}"/>
+  {% endstylesheets %}
+{% endblock stylesheets %}
