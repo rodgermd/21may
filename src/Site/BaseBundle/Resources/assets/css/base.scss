@@ -4,6 +4,7 @@
 
 $light: #efefef;
 $green: green;
+$orange: #dc3800;
 $font: proxima_nova_lt, Helvetica, Arial, sans-serif;
 
 @mixin font-light {
@@ -55,28 +56,51 @@ body {
   @include font-bold;
   a {
     color: #fff;
+    text-shadow: 0 0 1px #000;
   }
 }
 
 #header-menu {
+  a {
+    text-decoration: none;
+    display: block;
+  }
   > li {
     margin: 0 1px;
     @include inline-block;
+    /* dropdown menus */
     &.has-submenu {
       position: relative;
       ul {
         display: none;
-        margin: 0; padding: 0;
+        width: 590px;
+        margin: 0;
+        padding: 0;
         position: absolute;
-        >li {
-         @include inline-block;
-         a {
-           height: auto;
-         }
+        border-top: 3px transparent solid;
+        > li {
+          @include inline-block;
+          a {
+            @include bg_checks_black_light;
+            padding: 12px 20px 20px;
+            span.title {
+              display: block;
+              font-size: 18px;
+              margin-bottom: 5px;
+              border-bottom: 5px transparent solid;
+            }
+            img {
+              display: block;
+            }
+          }
         }
       }
       &:hover ul {
         display: block;
+        a:hover span.title {
+          border-color: $orange;
+          color: $orange;
+        }
       }
     }
     &.split li {
@@ -85,7 +109,9 @@ body {
         padding: 20px 27px;
         height: 19px;
       }
-      &:last-child { margin-bottom: 0}
+      &:last-child {
+        margin-bottom: 0
+      }
     }
   }
   #menu-home {
@@ -100,15 +126,17 @@ body {
   #menu-contacts-blog {
     width: 150px;
   }
-  a {
-    display: block;
+  > li, li.split li {
+   > a {
+      @include bg_checks_black_light;
+      &:hover {
+        @include bg_stripes_red;
+      }
+    }
+  }
+  > li > a {
     padding: 20px 15px;
     height: 80px;
-    text-decoration: none;
-    @include bg_checks_black_light;
-    &:hover {
-      @include bg_stripes_red;
-    }
   }
   #link-to-home {
     @include bg_checks_black_dark;

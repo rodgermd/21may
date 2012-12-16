@@ -58,6 +58,12 @@ class Accommodation implements Translatable
   private $secondary_text;
 
   /**
+   * @var boolean
+   * @ORM\Column(name="show_on_homepage", type="boolean")
+   */
+  private $show_on_homepage = false;
+
+  /**
    * @var \DateTime
    * @Gedmo\Timestampable(on="create")
    * @ORM\Column(name="created_at", type="datetime")
@@ -258,6 +264,27 @@ class Accommodation implements Translatable
   public function getSecondaryText()
   {
     return $this->secondary_text;
+  }
+
+  /**
+   * Sets show_on_homepage
+   * @param $show_on_homepage
+   * @return Accommodation
+   */
+  public function setShowOnHomepage($show_on_homepage)
+  {
+    $this->show_on_homepage = $show_on_homepage;
+
+    return $this;
+  }
+
+  /**
+   * Gets show_on_homepage
+   * @return bool
+   */
+  public function getShowOnHomepage()
+  {
+    return $this->show_on_homepage;
   }
 
   /**

@@ -14,6 +14,6 @@ class LanguageController extends Controller
   public function indexAction()
   {
     $locale = $this->getRequest()->getLocale();
-    return $this->redirect($this->generateUrl('index', array('_locale' => $locale)));
+    return $this->redirect($this->generateUrl('homepage', array('_locale' => $locale)));
   }
 }

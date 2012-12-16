@@ -24,6 +24,7 @@ class AccommodationAdmin extends Admin
       'template' => 'SiteAdminBundle:AccommodationAdmin:list_image.html.twig',
       'label' => 'Primary image'
     ))
+    ->add('show_on_homepage')
     ->add('created_at', 'datetime')
     ->add('updated_at', 'datetime')
     ;
@@ -48,7 +49,9 @@ class AccommodationAdmin extends Admin
       'required'   => false,
       'use_delete' => $subject->getImageFilename(),
       'method'     => 'getImageFilename'
-    ));
+    ))
+      ->add('show_on_homepage')
+    ;
 
     if ($subject->getId()) $this->setTemplate('edit', 'SiteAdminBundle:AccommodationAdmin:edit.html.twig');
   }
