@@ -1,9 +1,10 @@
 {% extends "::base.html.twig" %}
 
 {% block title %}{{ parent() }} - {{ accommodation.title }}{% endblock %}
+{% block selected_menu %}accommodation{% endblock selected_menu %}
 
 {% block content %}
-  <div id="accommodation-container">
+  <div id="accommodation-container" class="content-pages-container">
     <div class="row">
       <div class="column-right">
         <a href="{{ path('book.accommodation', { slug: accommodation.slug }) }}"
@@ -30,7 +31,11 @@
         {% if accommodation.images | length %}
           <ul class="images-list">
             {% for image in accommodation.images %}
-              <li>{{ image | uploaded_image('accommodation_images_list') }}</li>
+              <li>
+                <a href="{{ image | uploaded_image_uri('accommodation_maximum') }}" class="lightbox-image">
+                {{ image | uploaded_image('accommodation_images_list') }}
+                </a>
+              </li>
             {% endfor %}
           </ul>
           <div id="secondary-text-container">

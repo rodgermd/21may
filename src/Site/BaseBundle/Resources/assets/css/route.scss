@@ -1,0 +1,56 @@
+@import "definitions";
+
+#route-primary {
+  padding: 24px;
+  h4 {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 1em 0 .5em;
+  }
+
+  #route-program table {
+    tr {
+      td {
+        padding: 4px 5px;
+        border-bottom: 1px #333 dotted;
+        &:first-child {
+          white-space: nowrap;
+          font-weigth: bold;
+          &:before {
+            content: '';
+            @include inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 12px;
+            background-color: #fff;
+            margin-right: 10px;
+            vertical-align: -1px;
+          }
+        }
+        &:last-child {
+          vertical-align: top;
+        }
+      }
+    }
+  }
+
+  #route-additional {
+    padding: 0 0 20px;
+    margin-top: 20px;
+    border-top: 1px #fff solid;
+    ul {
+      margin-left: 2em;
+      li {
+        list-style-type: circle;
+      }
+    }
+  }
+}
+
+#route-iframe-wrapper {
+  iframe {
+    width: 100% !important;
+  }
+}
+
+

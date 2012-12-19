@@ -92,7 +92,7 @@ class Route
    * @ORM\JoinColumn(name="accommodation_id", referencedColumnName="id", onDelete="CASCADE")
    * @Assert\NotBlank()
    */
-  private $accomodation;
+  private $accommodation;
 
   /**
    * @Gedmo\Locale
@@ -339,9 +339,9 @@ class Route
    * @param \Site\BaseBundle\Entity\Accommodation $accomodation
    * @return Route
    */
-  public function setAccomodation(\Site\BaseBundle\Entity\Accommodation $accomodation = null)
+  public function setAccommodation(\Site\BaseBundle\Entity\Accommodation $accommodation = null)
   {
-    $this->accomodation = $accomodation;
+    $this->accommodation = $accommodation;
 
     return $this;
   }
@@ -351,8 +351,8 @@ class Route
    *
    * @return \Site\BaseBundle\Entity\Accommodation
    */
-  public function getAccomodation()
+  public function getAccommodation()
   {
-    return $this->accomodation;
+    return $this->accommodation;
   }
 }

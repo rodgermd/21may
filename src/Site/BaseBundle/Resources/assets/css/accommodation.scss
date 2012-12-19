@@ -1,31 +1,7 @@
 @import "definitions";
 
-#accommodation-container {
-  h1 {
-    @include font-light;
-    font-size: 33px;
-    text-transform: uppercase;
-  }
-  .row {
-    overflow: hidden;
-    .column-left {
-      float: left;
-      width: 745px;
-      @include bg_checks_black_mid;
-      @include text-shadow;
-      &, a {
-        color: #fff
-      }
-    }
-    .column-right {
-      float: right;
-      width: 190px;
-    }
-  }
-}
-
 #accommodation-primary, #secondary-text-container {
-  padding: 34px 24px;
+  padding: 24px;
 }
 
 #secondary-text-container {
@@ -50,10 +26,4 @@
     }
   }
   margin-bottom: 1em;
-}
-
-.images-list {
-  li {
-    @include inline-block;
-  }
 }

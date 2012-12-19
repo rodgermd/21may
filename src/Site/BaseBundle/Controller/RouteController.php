@@ -10,13 +10,13 @@ use Site\BaseBundle\Entity\Route as AccommodationRoute;
 use Site\BaseBundle\Entity\AccommodationRepository;
 
 /**
- * @Route("/{_locale}/a", defaults={"_locale" : "en"}, requirements={"_locale"="en|es"})
+ * @Route("/{_locale}/r", defaults={"_locale" : "en"}, requirements={"_locale"="en|es"})
  */
-class AccommodationController extends Controller
+class RouteController extends Controller
 {
 
   /**
-   * @Route("/", name="accommodations")
+   * @Route("/", name="routes")
    * @Template
    */
   public function indexAction()
@@ -32,15 +32,13 @@ class AccommodationController extends Controller
   {
     return $this->indexAction();
   }
-  /**
-   * @Route("/{slug}", name="accommodation")
-   * @Template
-   * @param \Site\BaseBundle\Entity\Accommodation $accommodation
-   * @return array
-   */
-  public function accommodationAction(Accommodation $accommodation)
-  {
-    return compact('accommodation');
-  }
 
+  /**
+   * @Route("/{slug}", name="route")
+   * @Template
+   */
+  public function routeAction(AccommodationRoute $route)
+  {
+    return compact('route');
+  }
 }

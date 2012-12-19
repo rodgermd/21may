@@ -5,6 +5,7 @@ namespace Site\BaseBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Site\BaseBundle\Entity\Route as AccommodationRoute;
 use Site\BaseBundle\Entity\Accommodation;
 use Site\BaseBundle\Entity\AccommodationRepository;
 
@@ -14,11 +15,20 @@ use Site\BaseBundle\Entity\AccommodationRepository;
 class ContactController extends Controller
 {
   /**
-   * @Route("/book/{slug}", name="book.accommodation")
+   * @Route("/book/accommodation/{slug}", name="book.accommodation")
    * @Template
    */
   public function bookAccommodationAction(Accommodation $accommodation)
   {
     return compact('accommodation');
+  }
+
+  /**
+   * @Route("/book/route/{slug}", name="book.route")
+   * @Template
+   */
+  public function bookRouteAction(AccommodationRoute $route)
+  {
+    return compact('route');
   }
 }

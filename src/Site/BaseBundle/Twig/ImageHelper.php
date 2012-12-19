@@ -23,23 +23,31 @@ class ImageHelper extends Twig_Extension
   public function getFilters()
   {
     return array(
-      'uploaded_image' => new Twig_Filter_Method($this, 'uploaded_image', array("is_safe" => array("html"))),
+      'uploaded_image'     => new Twig_Filter_Method($this, 'uploaded_image', array("is_safe" => array("html"))),
+      'uploaded_image_uri' => new Twig_Filter_Method($this, 'uploaded_image_uri', array("is_safe" => array("html"))),
     );
   }
 
   public function getFunctions()
   {
     return array(
-      'uploaded_image' => new Twig_Function_Method($this, 'uploaded_image', array("is_safe" => array("html"))),
+      'uploaded_image'     => new Twig_Function_Method($this, 'uploaded_image', array("is_safe" => array("html"))),
+      'uploaded_image_uri' => new Twig_Function_Method($this, 'uploaded_image_uri', array("is_safe" => array("html"))),
     );
   }
 
   public function uploaded_image($obj, $filter = null, $field = 'file', array $options = array())
   {
-    $filename = $this->uploader_helper->asset($obj, $field);
+    $filename  = $this->uploader_helper->asset($obj, $field);
     $thumbnail = $this->imagine_twig_extension->filter($filename, $filter);
 
     return $this->image_tag($thumbnail, $options);
+  }
+
+  public function uploaded_image_uri($obj, $filter = null, $field = 'file', array $options = array())
+  {
+    $filename = $this->uploader_helper->asset($obj, $field);
+    return $this->imagine_twig_extension->filter($filename, $filter);
   }
 
 

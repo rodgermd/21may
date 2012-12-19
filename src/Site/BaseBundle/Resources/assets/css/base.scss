@@ -25,8 +25,8 @@ body {
 }
 
 #content-wrapper {
-  padding: 67px 0;
-  height: 1000px - 67px *2;
+  padding: 30px 0;
+  height: 1000px - 30px *2;
 }
 
 //@import "header";
@@ -119,6 +119,9 @@ body {
     padding: 20px 15px;
     height: 80px;
   }
+  > li.active > a {
+    @include bg_stripes_red;
+  }
   #link-to-home {
     @include bg_checks_black_dark;
     padding: 14px 25px;
@@ -145,5 +148,61 @@ body {
   letter-spacing: 3px;
   text-decoration: none;
 }
+
+/************************
+*    CONTENT PAGES
+/***********************/
+
+.content-pages-container {
+  h1 {
+    @include font-light;
+    font-size: 33px;
+    text-transform: uppercase;
+  }
+  .row {
+    overflow: hidden;
+    .column-left {
+      float: left;
+      width: 745px;
+      @include bg_checks_black_mid;
+      @include text-shadow;
+      &, a {
+        color: #fff
+      }
+    }
+    .column-right {
+      float: right;
+      width: 190px;
+    }
+  }
+  .images-list {
+    li {
+      @include inline-block;
+    }
+  }
+}
+
+.sticky-object {
+  @include bg_checks_bw;
+  padding: 19px;
+  margin-top: 20px;
+  h4 {
+    @include font-bold;
+    font-size: 18px;
+    padding: 5px 10px 10px 5px;
+    border-left: 19px $red solid;
+    margin: 0 0 10px -19px;
+    text-transform: uppercase;
+    a {
+      color: #000;
+      text-decoration: none;
+    }
+  }
+  &:first-child {
+    margin-top: 100px;
+  }
+}
+
+
 
 @import "footer";

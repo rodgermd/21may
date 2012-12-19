@@ -1,0 +1,75 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}{{ parent() }} - {{ route.title }}{% endblock %}
+{% block selected_menu %}routes{% endblock selected_menu %}
+
+{% block content %}
+  <div id="route-container" class="content-pages-container">
+    <div class="row">
+      <div class="column-right">
+        <a href="{{ path('book.route', { slug: route.slug }) }}"
+           class="book-item">{{ 'Book' | trans }}</a>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="column-left">
+        <div id="route-primary">
+          <h1>{{ route.title }}</h1>
+
+          <div id="route-program">
+            <h4>{{ 'Program' | trans }}</h4>
+            {{ route.program | raw }}
+          </div>
+
+          <div id="route-additional">
+            {{ route.additional | raw }}
+          </div>
+
+          {% if route.images | length %}
+            <ul class="images-list">
+              {% for image in route.images %}
+                <li>
+                  <a href="{{ image | uploaded_image_uri('route_maximum') }}" class="lightbox-image">
+                    {{ image | uploaded_image('route_images_list') }}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="column-right">
+        <div class="sticky-object">
+          <h4>
+            <a href="{{ path('accommodation', { slug: route.accommodation.slug }) }}">
+              {{ route.accommodation.title }}
+            </a>
+          </h4>
+          <a href="{{ path('accommodation', { slug: route.accommodation.slug }) }}">
+            {{ route.accommodation | uploaded_image('accommodation_sticky') }}
+          </a>
+        </div>
+      </div>
+    </div>
+
+    {% if route.iframeCode %}
+      <div class="row">
+        <div class="column-left" id="route-iframe-wrapper">
+          {{ route.iframeCode | raw }}
+        </div>
+      </div>
+    {% endif %}
+
+  </div>
+{% endblock content %}
+
+{% block stylesheets %}
+  {{ parent() }}
+  {% stylesheets
+  "@SiteBaseBundle/Resources/assets/css/route.scss"
+  filter="compass, ?yui_css" %}
+  <link rel="stylesheet" href="{{ asset_url }}"/>
+  {% endstylesheets %}
+{% endblock stylesheets %}

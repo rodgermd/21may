@@ -18,8 +18,7 @@
 <div id="overall-wrapper">
   <div id="site-main-wrapper">
     <div class="site-width">
-      {% block selected_menu %}{% endblock selected_menu %}
-      {% include "::header.html.twig" %}
+      {% include "::header.html.twig" with { selected_menu: block('selected_menu')}%}
       <div id="content-wrapper">
         {% block content %}
         {% endblock content %}
