@@ -43,7 +43,21 @@
           </div>
         {% endif %}
       </div>
-      <div class="column-right"></div>
+      <div class="column-right">
+        {% for route in accommodation.routes %}
+        <div class="sticky-object">
+          <h4>
+            <a href="{{ path('route', { slug: route.slug }) }}">
+              {{ route.title }}
+            </a>
+          </h4>
+          <a href="{{ path('route', { slug: route.slug }) }}">
+            {{ route.images[random((route.images | length) - 1 )] | uploaded_image('route_sticky') }}
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+      </div>
     </div>
   </div>
 {% endblock content %}

@@ -107,6 +107,13 @@ class Accommodation implements Translatable
   private $images;
 
   /**
+   * @ORM\OneToMany(targetEntity="Site\BaseBundle\Entity\Route", mappedBy="accommodation", cascade={"persist", "remove"})
+   * @ORM\OrderBy({"created_at" = "ASC"})
+   * @var array $images
+   */
+  private $routes;
+
+  /**
    * @Gedmo\Locale
    */
   private $locale;
@@ -370,4 +377,76 @@ class Accommodation implements Translatable
   {
     return $this->images;
   }
+
+    /**
+     * Set created_at
+     *
+     * @param \DateTime $createdAt
+     * @return Accommodation
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->created_at = $createdAt;
+    
+        return $this;
+    }
+
+    /**
+     * Set updated_at
+     *
+     * @param \DateTime $updatedAt
+     * @return Accommodation
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updated_at = $updatedAt;
+    
+        return $this;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Accommodation
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+    
+        return $this;
+    }
+
+    /**
+     * Add routes
+     *
+     * @param \Site\BaseBundle\Entity\Route $routes
+     * @return Accommodation
+     */
+    public function addRoute(\Site\BaseBundle\Entity\Route $routes)
+    {
+        $this->routes[] = $routes;
+    
+        return $this;
+    }
+
+    /**
+     * Remove routes
+     *
+     * @param \Site\BaseBundle\Entity\Route $routes
+     */
+    public function removeRoute(\Site\BaseBundle\Entity\Route $routes)
+    {
+        $this->routes->removeElement($routes);
+    }
+
+    /**
+     * Get routes
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getRoutes()
+    {
+        return $this->routes;
+    }
 }

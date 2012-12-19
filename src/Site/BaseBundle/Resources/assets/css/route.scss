@@ -47,6 +47,10 @@
   }
 }
 
+.sticky-object:first-child {
+  margin-top: 100px;
+}
+
 #route-iframe-wrapper {
   iframe {
     width: 100% !important;
