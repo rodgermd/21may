@@ -1,0 +1,36 @@
+@import "definitions";
+
+.content-pages-container {
+ .accommodations-list {
+   margin: 0 -5px;
+   li {
+     margin: 5px;
+     @include inline-block;
+     a {
+       display: block;
+       @include text-shadow;
+       @include bg_checks_black_light;
+       padding: 12px 20px 20px;
+       text-decoration: none;
+       span.title {
+         display: block;
+         font-size: 18px;
+         margin-bottom: 5px;
+         border-bottom: 5px transparent solid;
+         text-transform: uppercase;
+         color: #fff;
+       }
+       img {
+         display: block;
+       }
+       &:hover {
+         @include bg_checks_black_dark;
+         span.title {
+           border-color: $orange;
+           color: $orange;
+         }
+       }
+     }
+   }
+ }
+}

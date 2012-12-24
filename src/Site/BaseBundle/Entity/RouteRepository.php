@@ -12,4 +12,21 @@ use Doctrine\ORM\EntityRepository;
  */
 class RouteRepository extends EntityRepository
 {
+  /**
+   * Gets sorted accommodations
+   * @return array
+   */
+  public function getSorted()
+  {
+    return $this->getSortedQb()->getQuery()->getResult();
+  }
+
+  /**
+   * Gets Qb with primary sorting
+   * @return \Doctrine\ORM\QueryBuilder
+   */
+  public function getSortedQb()
+  {
+    return $this->createQueryBuilder('r')->orderBy('r.title', 'asc');
+  }
 }

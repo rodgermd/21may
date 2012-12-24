@@ -17,7 +17,7 @@ class AccommodationController extends Controller
 
   /**
    * @Route("/", name="accommodations")
-   * @Template
+   * @Template("SiteBaseBundle:Accommodation:accommodations.html.twig")
    */
   public function indexAction()
   {

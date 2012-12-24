@@ -71,7 +71,7 @@ liip_imagine:
       filters:
         thumbnail: { size: [50, 50], mode: outbound }
 
-    menu_dropdown:
+    accommodation_menu_dropdown:
       data_loader: stream.accommodation
       filters:
         thumbnail: { size: [255, 92], mode: outbound }
@@ -106,6 +106,10 @@ liip_imagine:
       data_loader: stream.route
       filters:
         thumbnail: { size: [50, 50], mode: outbound }
+    route_menu_dropdown:
+      data_loader: stream.route
+      filters:
+        thumbnail: { size: [255, 92], mode: outbound }
     route_admin_preview:
       data_loader: stream.route
       filters:
@@ -124,4 +128,9 @@ liip_imagine:
       data_loader: stream.route
       filters:
         thumbnail: { size: [150, 150], mode: outbound }
+
+    routes_list:
+      data_loader: stream.route
+      filters:
+        thumbnail: { size: [375, 137], mode: outbound }
 

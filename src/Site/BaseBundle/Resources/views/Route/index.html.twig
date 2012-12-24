@@ -1,0 +1,20 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}21 May - {{ 'Routes' | trans }}{% endblock title %}
+{% block selected_menu %}routes{% endblock selected_menu %}
+
+{% block content %}
+  <div class="content-pages-container">
+    <h1>{{ 'Routes' | trans }}</h1>
+    {% include "SiteBaseBundle:Route:list.html.twig" with { filter: 'routes_list' }%}
+  </div>
+{% endblock content %}
+
+{% block stylesheets %}
+  {{ parent() }}
+  {% stylesheets
+  "@SiteBaseBundle/Resources/assets/css/routes.scss"
+  filter="compass, ?yui_css" %}
+  <link rel="stylesheet" href="{{ asset_url }}"/>
+  {% endstylesheets %}
+{% endblock stylesheets %}

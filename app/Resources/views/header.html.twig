@@ -13,7 +13,7 @@
       </li>
       <li id="menu-routes" class="has-submenu{% if selected_menu == 'routes' %} active{% endif %}">
         <a href="{{ path('routes') }}">{{ 'Routes' | trans }} + <br/>{{ 'Accommodation' | trans }}</a>
-
+        {% render "SiteBaseBundle:Route:menu_list" %}
       </li>
       <li id="menu-about-us" {% if selected_menu == 'about-us' %}class="active"{% endif %}>
         <a href="{{ path('pages.about_us') }}">{{ 'About us' | trans }}</a>

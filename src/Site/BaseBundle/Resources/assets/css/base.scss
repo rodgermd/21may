@@ -64,6 +64,7 @@ body {
         > li {
           @include inline-block;
           a {
+            width: 255px;
             @include bg_checks_black_light;
             padding: 12px 20px 20px;
             span.title {

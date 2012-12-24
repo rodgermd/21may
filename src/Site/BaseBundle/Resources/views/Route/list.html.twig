@@ -1,0 +1,14 @@
+<ul class="routes-list">
+  {% spaceless %}
+    {% for route in routes %}
+      <li>
+        <a href="{{ path('route', { slug: route.slug }) }}">
+          <span class="title">{{ route }}</span>
+          {% if route.images | length %}
+          {{ route.images[random((route.images | length) - 1 )] | uploaded_image(filter | default('route_menu_dropdown')) }}
+          {% endif %}
+        </a>
+      </li>
+    {% endfor %}
+  {% endspaceless %}
+</ul>

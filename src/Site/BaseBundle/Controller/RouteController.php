@@ -21,8 +21,8 @@ class RouteController extends Controller
    */
   public function indexAction()
   {
-    $accommodations = $this->getDoctrine()->getRepository("SiteBaseBundle:Accommodation")->getSorted();
-    return compact('accommodations');
+    $routes = $this->getDoctrine()->getRepository("SiteBaseBundle:Route")->getSorted();
+    return compact('routes');
   }
 
   /**
