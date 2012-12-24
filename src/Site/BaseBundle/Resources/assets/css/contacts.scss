@@ -1,0 +1,31 @@
+@import "definitions";
+
+.contact-wrapper {
+  @include bg_checks_black_mid;
+  padding: 20px;
+  h1 {
+    @include font-light;
+    @include text-shadow;
+    font-size: 28px;
+    color: #fff;
+    margin-top: 0;
+  }
+  .table-wrapper {
+    margin: 0 -10px;
+  }
+  td {
+    padding: 5px 10px;
+  }
+  form {
+    label {
+      display: none;
+    }
+    [type=text], [type=email] {
+      width: 424px;
+    }
+    textarea {
+      width: 882px !important;
+      min-height: 100px;
+    }
+  }
+}

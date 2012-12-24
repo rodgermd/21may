@@ -4,8 +4,7 @@
   <meta charset="UTF-8"/>
   <title>{% block title %}21 May{% endblock %}</title>
   {% block stylesheets %}
-    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.9.0/build/reset/reset-min.css">
-    <link rel="stylesheet" href="{{ asset('bundles/sonataadmin/bootstrap/css/bootstrap.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}"/>
     {% stylesheets
     "@SiteBaseBundle/Resources/assets/css/base.scss"
     filter="compass, ?yui_css" %}

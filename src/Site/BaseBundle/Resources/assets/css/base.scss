@@ -39,6 +39,13 @@ body {
     color: #fff;
     @include text-shadow;
   }
+  ul {
+    margin: 0;
+    padding: 0;
+    li {
+      list-style: none;
+    }
+  }
 }
 
 #header-menu {
@@ -201,6 +208,51 @@ body {
   }
 }
 
+.objects-index {
+  @include bg_checks_black_mid;
+  @include text-shadow;
+  color: #fff;
+  padding: 20px;
+  h1 {
+    font-size: 28px;
+    margin-bottom: 1em;
+    font-weight: bold;
+  }
+  .accommodations-list, .routes-list {
+    margin: 0 -20px;
+    li {
+      @include inline-block;
+      margin: 5px 20px;
+    }
+    a {
+      display: block;
+      text-decoration: none;
+      color: #fff;
+      span.title {
+        display: block;
+        font-weight: bold;
+        font-size: 16px;
+        text-transform: uppercase;
+        border-bottom: 5px transparent solid;
+        margin-bottom: 10px;
+      }
+      &:hover {
+        span.title {
+          color: $orange;
+          border-color: $orange;
 
+        }
+      }
+    }
+  }
+}
+
+ul.errors {
+  margin: 10px 0;
+  padding: 0;
+  li {
+    list-style: none;
+  }
+}
 
 @import "footer";

@@ -1,0 +1,12 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}21 May - {{ 'Accommodations' | trans }}{% endblock title %}
+{% block selected_menu %}accommodation{% endblock selected_menu %}
+
+{% block content %}
+  <div class="objects-index">
+    <h1>{{ 'Accommodations' | trans }}</h1>
+    {% include "SiteBaseBundle:Accommodation:list.html.twig" with { filter: 'accommodations_list' } %}
+  </div>
+{% endblock content %}
+

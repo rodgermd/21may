@@ -1,0 +1,26 @@
+{% extends "form_div_layout.html.twig" %}
+
+{% block form_errors %}
+  {% spaceless %}
+    {% if errors|length > 0 %}
+      <ul class="errors">
+        {% for error in errors %}
+          <li class="alert alert-block alert-error fade in">{{
+          error.messagePluralization is null
+          ? error.messageTemplate|trans(error.messageParameters, 'validators')
+          : error.messageTemplate|transchoice(error.messagePluralization, error.messageParameters, 'validators')
+          }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endspaceless %}
+{% endblock form_errors %}
+
+{% block form_row %}
+  {% spaceless %}
+    <div>
+      {{ form_widget(form) }}
+      {{ form_errors(form) }}
+    </div>
+  {% endspaceless %}
+{% endblock form_row %}
