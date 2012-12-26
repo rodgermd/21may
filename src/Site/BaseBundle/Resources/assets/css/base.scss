@@ -185,6 +185,7 @@ body {
     }
   }
   .images-list {
+    margin: 0;
     li {
       @include inline-block;
     }
@@ -215,9 +216,9 @@ body {
   color: #fff;
   padding: 20px;
   h1 {
-    font-size: 28px;
-    margin-bottom: 1em;
-    font-weight: bold;
+    @include font-light;
+    font-size: 33px;
+    text-transform: uppercase;
   }
   .accommodations-list, .routes-list {
     margin: 0 -20px;
