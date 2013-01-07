@@ -22,5 +22,8 @@ monolog:
 assetic:
     use_controller: true
 
-#swiftmailer:
-#    delivery_address: me@example.com
+swiftmailer:
+    delivery_address: rodger@mura-show.com
+    transport: %dev_mailer_transport%
+    username:  %dev_mailer_user%
+    password:  %dev_mailer_password%

@@ -1,0 +1,40 @@
+<body>
+<h1>Contact message from 21may</h1>
+
+<table>
+  <tbody>
+  {% if model.name %}
+    <tr>
+      <th align="left">Name:</th>
+      <td>{{ model.name }}</td>
+    </tr>
+  {% endif %}
+
+  {% if model.phone %}
+    <tr>
+      <th align="left">Phone:</th>
+      <td>{{ model.phone }}</td>
+    </tr>
+  {% endif %}
+
+  {% if model.email %}
+    <tr>
+      <th align="left">Email:</th>
+      <td>{{ model.email }}</td>
+    </tr>
+  {% endif %}
+
+  {% if model.nationality %}
+    <tr>
+      <th align="left">Nationality:</th>
+      <td>{{ model.nationality }}</td>
+    </tr>
+  {% endif %}
+  </tbody>
+</table>
+
+{% if model.message %}
+<h2>Message:</h2>
+{{ model.message | raw }}
+{% endif %}
+</body>

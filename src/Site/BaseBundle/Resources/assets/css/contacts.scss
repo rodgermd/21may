@@ -3,6 +3,7 @@
 .contact-wrapper {
   @include bg_checks_black_mid;
   padding: 20px;
+  width: 705px;
   h1 {
     @include font-light;
     @include text-shadow;
@@ -21,11 +22,12 @@
       display: none;
     }
     [type=text], [type=email] {
-      width: 424px;
+      width: 328px;
     }
     textarea {
-      width: 882px !important;
+      width: 690px !important;
       min-height: 100px;
     }
   }
 }
+.submit-holder { text-align: right;}

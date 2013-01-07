@@ -51,7 +51,18 @@ class ContactController extends Controller
 
     if ($model = $this->process_form($form))
     {
-      $this->get('session')->getFlashBag()->add('notice', 'Your form was sent successfully');
+      /** @var ContactModel $model $message  */
+      $message = new \Swift_Message(
+        'Contact message from 21may',
+        $this->renderView('SiteBaseBundle:Contact:mail_contact.html.twig', array('model' => $model)),
+        'text/html');
+      $message->setFrom($this->container->getParameter('site.email.from'));
+      $message->setTo($this->container->getParameter('site.email.to'));
+
+      if ($model->getEmail()) $message->setReplyTo($model->getEmail(), $model->getName());
+
+      $this->get('mailer')->send($message);
+      $this->get('session')->getFlashBag()->add('contact-success', 'Your form was sent successfully');
       return $this->redirect('contact');
     }
     return array('form' => $form->createView());

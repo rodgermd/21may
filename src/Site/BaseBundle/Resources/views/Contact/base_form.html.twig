@@ -1,24 +1,32 @@
 {% form_theme form "SiteBaseBundle:Contact:form_theme.html.twig" %}
-<div class="table-wrapper">
-  <table width="100%">
-    <tbody>
-    <tr>
-      <td>{{ form_row(form.name, { attr: { placeholder: 'Name' | trans } }) }}</td>
-      <td>{{ form_row(form.phone, { attr: { placeholder: 'Phone' | trans } }) }}</td>
-    </tr>
-    <tr>
-      <td>{{ form_row(form.email, { attr: { placeholder: 'Email' | trans } }) }}</td>
-      <td>{{ form_row(form.nationality, { attr: { placeholder: 'Nationality' | trans } }) }}</td>
-    </tr>
-    <tr>
-      <td colspan="2">
-        {{ form_row(form.message, { attr: { placeholder: 'Comment' | trans } }) }}
-      </td>
-    </tr>
-    </tbody>
-  </table>
-</div>
-{{ form_rest(form) }}
-<div class="submit-holder">
-  <input type="submit" value="{{ 'Send' | trans }}" class="btn btn-danger btn-large"/>
-</div>
+{% if app.session.flashbag.has('contact-success') %}
+  <div class="alert">
+    {% for flash_message in app.session.flashbag.get('contact-success') %}
+      {{ flash_message | trans }}
+    {% endfor %}
+  </div>
+{% else %}
+  <div class="table-wrapper">
+    <table width="100%">
+      <tbody>
+      <tr>
+        <td>{{ form_row(form.name, { attr: { placeholder: 'Name' | trans } }) }}</td>
+        <td>{{ form_row(form.phone, { attr: { placeholder: 'Phone' | trans } }) }}</td>
+      </tr>
+      <tr>
+        <td>{{ form_row(form.email, { attr: { placeholder: 'Email' | trans } }) }}</td>
+        <td>{{ form_row(form.nationality, { attr: { placeholder: 'Nationality' | trans } }) }}</td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          {{ form_row(form.message, { attr: { placeholder: 'Comment' | trans } }) }}
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  {{ form_rest(form) }}
+  <div class="submit-holder">
+    <input type="submit" value="{{ 'Send' | trans }}" class="btn btn-danger btn-large"/>
+  </div>
+{% endif %}

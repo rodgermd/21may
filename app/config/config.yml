@@ -104,3 +104,8 @@ stof_doctrine_extensions:
 personal_translations_widget:
   languages: %languages%
 
+site_base:
+  emails:
+    from: noreply@21may.com
+    to: rodger@ladela.com
+

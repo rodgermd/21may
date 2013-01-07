@@ -11,6 +11,10 @@ parameters:
     mailer_user:       ~
     mailer_password:   ~
 
+    dev_mailer_transport:  gmail
+    dev_mailer_user:       ~
+    dev_mailer_password:   ~
+
     locale:            en
     secret:            ThisTokenIsNotSoSecretChangeIt
 
