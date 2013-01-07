@@ -23,6 +23,7 @@ body {
   position: absolute;
   z-index: 1;
   overflow: hidden;
+  width: 1280px;
 }
 
 .site-width {
@@ -32,7 +33,6 @@ body {
 
 #content-wrapper {
   padding: 30px 0;
-  height: 1000px - 30px *2;
 }
 
 //@import "header";

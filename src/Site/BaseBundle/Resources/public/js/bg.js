@@ -10,17 +10,24 @@ $.fn.fullbg = function(target_selector) {
         $obj.doResize();
       }
       else {
-        image.load($obj.doResize);
+        image.load(function() { $obj.doResize() });
       }
     },
     doResize: function() {
-      image.height(target.height()).css('visibility', 'visible');
+      var proportions = image.width() / image.height();
+      var newheight = target.height();
+      var newwidth = newheight * proportions;
+      if (newwidth < target.width()) {
+        newwidth = target.width();
+        newheight = newwidth / proportions;
+      }
+      image.height(parseInt(newheight)).width(parseInt(newwidth));
+
+      setInterval($obj.doResize, 2000);
     }
   };
 
   $obj.init();
-
-
 };
 
 $(function(){
