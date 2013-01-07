@@ -69,4 +69,11 @@
   filter="compass, ?yui_css" %}
   <link rel="stylesheet" href="{{ asset_url }}"/>
   {% endstylesheets %}
+  <link rel="stylesheet" href="/colorbox/colorbox.css"/>
 {% endblock stylesheets %}
+
+{% block javascripts %}
+{{ parent() }}
+  <script src="/colorbox/jquery.colorbox.js" type="text/javascript"></script>
+  <script src="{{ asset('bundles/sitebase/js/colorbox_init.js') }}"></script>
+{% endblock javascripts %}

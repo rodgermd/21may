@@ -14,6 +14,9 @@
   <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 </head>
 <body>
+<div id="background-container">
+<img src="{% block background_image %}/images/body.bg.jpg{% endblock background_image %}" id="background-image"/>
+</div>
 <div id="overall-wrapper">
   <div id="site-main-wrapper">
     <div class="site-width">
@@ -28,6 +31,7 @@
 </div>
 {% block javascripts %}
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  <script src="{{ asset('bundles/sitebase/js/bg.js') }}"></script>
 {% endblock %}
 </body>
 </html>

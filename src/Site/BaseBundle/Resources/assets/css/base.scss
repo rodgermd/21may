@@ -15,8 +15,14 @@ body {
 }
 
 #site-main-wrapper {
-  background: url('/images/body.bg.jpg') 100% 0 no-repeat;
-  height: 1000px;
+  min-height: 1000px;
+  position: relative;
+  z-index: 2;
+}
+#background-container {
+  position: absolute;
+  z-index: 1;
+  overflow: hidden;
 }
 
 .site-width {
