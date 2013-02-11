@@ -13,7 +13,7 @@ $.fn.fullbg = function(target_selector) {
         image.load(function() { $obj.doResize() });
       }
     },
-    doResize: function() {
+    doResize: function(e) {
       var proportions = image.width() / image.height();
       var newheight = target.height();
       var newwidth = newheight * proportions;
@@ -23,7 +23,7 @@ $.fn.fullbg = function(target_selector) {
       }
       image.height(parseInt(newheight)).width(parseInt(newwidth));
 
-      setInterval($obj.doResize, 2000);
+      setTimeout($obj.doResize, 2000);
     }
   };
 
