@@ -4,16 +4,16 @@
     <ul id="header-menu">
       <li id="menu-home">
         <a href="{{ path('homepage') }}" title="{{ 'Home page' | trans }}" id="link-to-home">
-          <img src="/images/logo.white.png" width="182" height="92" id="logo-white"/>
+          <img src="/images/logo.png" width="197" height="97" id="logo-white"/>
         </a>
       </li>
       <li id="menu-accommodations" class="has-submenu{% if selected_menu == 'accommodation' %} active{% endif %}">
         <a href="{{ path('accommodations') }}">{{ 'Accommodation' | trans }}</a>
-        {% render "SiteBaseBundle:Accommodation:menu_list" %}
+        {% render controller("SiteBaseBundle:Accommodation:menu_list") %}
       </li>
       <li id="menu-routes" class="has-submenu{% if selected_menu == 'routes' %} active{% endif %}">
         <a href="{{ path('routes') }}">{{ 'Routes' | trans }} + <br/>{{ 'Accommodation' | trans }}</a>
-        {% render "SiteBaseBundle:Route:menu_list" %}
+        {% render controller("SiteBaseBundle:Route:menu_list") %}
       </li>
       <li id="menu-about-us" {% if selected_menu == 'about-us' %}class="active"{% endif %}>
         <a href="{{ path('pages.about_us') }}">{{ 'About us' | trans }}</a>

@@ -85,15 +85,14 @@ sonata_admin:
   title: Project 21 May Administration
 
 sonata_doctrine_orm_admin:
-    entity_manager: ~
+  entity_manager: ~
 
 sonata_block:
-    default_contexts: [cms]
-    blocks:
-        sonata.admin.block.admin_list:
-            contexts:   [admin]
-        sonata.block.service.text:
-        sonata.block.service.rss:
+  default_contexts: [cms]
+  blocks:
+    sonata.admin.block.admin_list:
+      contexts:   [admin]
+
 stof_doctrine_extensions:
   orm:
     default:
