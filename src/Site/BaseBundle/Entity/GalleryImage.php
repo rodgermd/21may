@@ -9,11 +9,14 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * @ORM\Table(name="routes__images")
+ * @ORM\Table(name="gallery_images")
+ * @ORM\InheritanceType("SINGLE_TABLE")
  * @ORM\Entity()
+ * @ORM\DiscriminatorColumn(name="gallery", type="string")
+ * @ORM\DiscriminatorMap({"aboutus" = "AboutUsImage"})
  * @Vich\Uploadable
  */
-class RouteImage
+class GalleryImage
 {
   /**
    * @var integer
@@ -23,6 +26,12 @@ class RouteImage
    * @ORM\GeneratedValue(strategy="AUTO")
    */
   private $id;
+
+  /**
+   * @ORM\Column(name="title", type="string", length=128, nullable=true)
+   * @var string $title
+   */
+  private $title;
 
   /**
    * @var string
@@ -35,25 +44,29 @@ class RouteImage
    *
    * @ORM\Column(name="filename", type="string", length=40)
    */
-  private $filename;
+  protected $filename;
 
   /**
-   * @var UploadedFile $file
-   * @Assert\File(
-   *     maxSize="10M",
-   *     mimeTypes={"image/png", "image/jpeg", "image/pjpeg"}
-   * )
-   * @Vich\UploadableField(mapping="route", fileNameProperty="filename")
+   * @var \DateTime
+   * @Gedmo\Timestampable(on="create")
+   * @ORM\Column(name="created_at", type="datetime")
    */
-  private $file;
+  private $created_at;
 
   /**
-   * @var Accommodation $accommodation
-   * @ORM\ManyToOne(targetEntity="Site\BaseBundle\Entity\Route", inversedBy="images")
-   * @ORM\JoinColumn(name="route_id", referencedColumnName="id", onDelete="CASCADE")
+   * @var \DateTime
+   * @Gedmo\Timestampable(on="update")
+   * @ORM\Column(name="updated_at", type="datetime")
    */
-  private $route;
+  private $updated_at;
 
+  protected $file;
+
+
+  public function __toString()
+  {
+    return $this->title ?: $this->filename;
+  }
 
   /**
    * Get id
@@ -89,6 +102,27 @@ class RouteImage
   }
 
   /**
+   * Gets title
+   * @return string
+   */
+  public function getTitle()
+  {
+    return $this->title;
+  }
+
+  /**
+   * Sets title
+   * @param $title
+   * @return \Site\BaseBundle\Entity\GalleryImage
+   */
+  public function setTitle($title)
+  {
+    $this->title = $title;
+
+    return $this;
+  }
+
+  /**
    * Set filename
    *
    * @param string $filename
@@ -112,29 +146,6 @@ class RouteImage
   }
 
   /**
-   * Set Route
-   *
-   * @param \Site\BaseBundle\Entity\Route $route
-   * @return AccommodationImage
-   */
-  public function setRoute(\Site\BaseBundle\Entity\Route $route = null)
-  {
-    $this->route = $route;
-
-    return $this;
-  }
-
-  /**
-   * Get Route
-   *
-   * @return \Site\BaseBundle\Entity\Route
-   */
-  public function getRoute()
-  {
-    return $this->route;
-  }
-
-  /**
    * Gets file
    * @return \Symfony\Component\HttpFoundation\File\UploadedFile
    */
@@ -151,10 +162,27 @@ class RouteImage
   public function setFile(UploadedFile $file)
   {
     $this->file = $file;
+    $this->updated_at = null;
     return $this;
   }
 
-  public function __toString() {
-    return $this->filename;
+  /**
+   * Get created_at
+   *
+   * @return \DateTime
+   */
+  public function getCreatedAt()
+  {
+    return $this->created_at;
+  }
+
+  /**
+   * Get updated_at
+   *
+   * @return \DateTime
+   */
+  public function getUpdatedAt()
+  {
+    return $this->updated_at;
   }
 }

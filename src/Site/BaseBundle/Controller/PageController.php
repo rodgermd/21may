@@ -23,10 +23,12 @@ class PageController extends Controller
 
   /**
    * @Route("/page/about-us", name="pages.about_us")
+   * @Template()
    */
   public function aboutUsAction()
   {
-
+    $images = $this->getDoctrine()->getRepository('SiteBaseBundle:AboutUsImage')->findAll();
+    return compact('images');
   }
 
   /**

@@ -8,26 +8,26 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Site\BaseBundle\Entity\Accommodation;
 use Site\BaseBundle\Entity\AccommodationTranslation;
 
-class RouteImageAdmin extends Admin
+class AboutUsImageAdmin extends Admin
 {
-
   protected function configureListFields(ListMapper $list) // optional
   {
     $list
+      ->addIdentifier('title')
       ->addIdentifier('filename', null, array(
-      'template' => 'SiteAdminBundle:RouteImageAdmin:list_image.html.twig',
+      'template' => 'SiteAdminBundle:AboutUsImageAdmin:list_image.html.twig',
       'label' => 'Image'
     ))
-    ->add('route')
+    ->add('created_at', 'date')
     ;
   }
 
   protected function configureFormFields(FormMapper $form)
   {
     $form
-      ->add('route')
+      ->add('title')
       ->add('file', 'image_file', array(
-      'filter' => 'route_admin_preview',
+      'filter' => 'galleries_admin_preview',
       'required'   => false,
       'method'     => 'getFilename'
     ));

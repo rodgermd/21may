@@ -1,0 +1,53 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}TURISMO 21 DE MAYO{% endblock title %}
+{% block selected_menu %}accommodation{% endblock selected_menu %}
+
+{% block content %}
+  <div class="pages-container">
+    <div class="video-block has-bg">
+      <iframe
+          src="http://player.vimeo.com/video/59462809?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;color=ffffff"
+          width="897" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+    </div>
+    <div class="page-main-area-wrapper">
+      <div class="column-right">
+        <div class="address-block column-right-element">
+          <div class="decorator"></div>
+          <p>Eberhard 560 Puerto Natales<br/>
+            Patagonia - Chile.</p>
+
+          <p>Tel + 56 61 614420<br/>
+            Fax + 56 61 614423<br/>
+            <a href="mailto:21demayo@chileaustral.com">21demayo@chileaustral.com</a></p>
+        </div>
+        {% if images | length %}
+          <div class="gallery-opener column-right-element">
+            <h4>{{ 'History in images' | trans }}</h4>
+            <ul class="gallery-images">
+              {% for image in images %}
+                <li><a href="{{ image | uploaded_image_uri('gallery_maximum') }}"
+                       rel="about-us-gallery" class="lightbox-image"
+                       title="{{ image.title }}">{{ image|uploaded_image('gallery_preview') }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+      </div>
+      <div class="page-text-container has-bg">
+        <h2>TURISMO 21 DE MAYO</h2>
+        {% include "SiteBaseBundle:Page:about_us_text_" ~ app.request.locale ~".html.twig" %}
+      </div>
+    </div>
+  </div>
+{% endblock content %}
+
+
+{% block stylesheets %}
+  {{ parent() }}
+  {% stylesheets
+  "@SiteBaseBundle/Resources/assets/css/pages.scss"
+  filter="compass, ?yui_css" %}
+  <link rel="stylesheet" href="{{ asset_url }}"/>
+  {% endstylesheets %}
+{% endblock stylesheets %}

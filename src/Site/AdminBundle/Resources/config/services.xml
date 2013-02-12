@@ -61,5 +61,15 @@
       </call>
     </service>
 
+    <service id="sonata.admin.aboutus_image" class="Site\AdminBundle\Admin\AboutUsImageAdmin">
+      <tag name="sonata.admin" manager_type="orm" group="Images" label="About Us Images"/>
+      <argument/>
+      <argument>Site\BaseBundle\Entity\AboutUsImage</argument>
+      <argument>SiteAdminBundle:AboutUsImageAdmin</argument>
+      <call method="setTranslationDomain">
+        <argument>SiteAdminBundle</argument>
+      </call>
+    </service>
+
   </services>
 </container>

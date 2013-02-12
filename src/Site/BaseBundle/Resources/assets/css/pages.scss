@@ -1,0 +1,70 @@
+@import "definitions";
+
+.pages-container {
+  .has-bg {
+    @include bg_checks_black_mid;
+  }
+  .video-block {
+    min-height: 100px;
+    padding: 20px;
+  }
+  .page-text-container {
+    padding: 20px;
+    overflow: hidden;
+    h2 {
+      font-weight: bold;
+      font-size: 24px;
+      color: #fff;
+    }
+    p {
+      font-size: 16px;
+      color: $light;
+    }
+  }
+
+  .page-main-area-wrapper {
+    .column-right {
+      float: right;
+      width: 312px;
+      margin-left: 20px;
+      .column-right-element {
+        position: relative;
+        @include bg_checks_black_mid;
+        margin-top: 20px;
+        padding: 20px 13px 20px 20px;
+        .decorator {
+          position: absolute;
+          width: 13px;
+          height: 110px;
+          @include bg_stripes_red;
+          top: 0;
+          right: 0;
+        }
+        p {
+          color: $light;
+        }
+        h4 {
+          color: #fff;
+          margin-top: 0;
+        }
+        &.address-block {
+          p {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+
+  }
+
+  .gallery-images {
+    margin: 0;
+    padding: 0;
+    li {
+      list-style: none;
+    }
+    li + li {
+      display: none;
+    }
+  }
+}

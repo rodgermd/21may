@@ -41,7 +41,7 @@ class AccommodationAdminController extends \Sonata\AdminBundle\Controller\CRUDCo
         'delete_url' => $this->generateUrl('admin_site_base_accommodationimage_delete', array('id' => $image->getId())),
         'delete_type' => 'DELETE'
       );
-      $result['thumbnail_url'] = $this->get('liip_imagine.templating.helper')->filter($result['url'], 'admin_image_small');
+      $result['thumbnail_url'] = $this->get('liip_imagine.templating.helper')->filter($result['url'], 'admin_accommodation_small');
 
       return new Response(json_encode(array($result)));
     }

@@ -6,7 +6,7 @@
   and admin.hasRoute(field_description.options.route.name)
   %}
     <a href="{{ admin.generateObjectUrl(field_description.options.route.name, object, field_description.options.route.parameters) }}">
-      {%- block field %}{{ object | uploaded_image('admin_image_small') }}{% endblock -%}
+      {%- block field %}{{ object | uploaded_image('admin_accommodation_small') }}{% endblock -%}
     </a>
   {% else %}
     {{ block('field') }}
