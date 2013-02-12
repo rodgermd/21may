@@ -108,7 +108,7 @@ liip_imagine:
     accommodation_maximum:
       data_loader: stream.accommodation
       filters:
-        thumbnail: { size: [2000, 2000], mode: inbound }
+        thumbnail: { size: [2000, 2000], mode: inset }
     accommodation_images_list:
       data_loader: stream.accommodation
       filters:
@@ -139,7 +139,7 @@ liip_imagine:
     route_maximum:
       data_loader: stream.route
       filters:
-        thumbnail: { size: [2000, 2000], mode: inbound }
+        thumbnail: { size: [2000, 2000], mode: inset }
     route_images_list:
       data_loader: stream.route
       filters:
@@ -186,5 +186,5 @@ liip_imagine:
     gallery_maximum:
       data_loader: stream.gallery
       filters:
-        thumbnail: { size: [2000, 2000], mode: inbound }
+        thumbnail: { size: [2000, 2000], mode: inset }
 

@@ -13,11 +13,11 @@
     overflow: hidden;
     h2 {
       font-weight: bold;
-      font-size: 24px;
+      font-size: 20px;
       color: #fff;
     }
     p {
-      font-size: 16px;
+      font-size: 14px;
       color: $light;
     }
   }
@@ -36,12 +36,22 @@
           position: absolute;
           width: 13px;
           height: 110px;
-          @include bg_stripes_red;
+          @include bg_checks_red;
           top: 0;
           right: 0;
         }
         p {
           color: $light;
+          &.address, &.phones {
+            padding-right: 80px;
+            text-align: right;
+          }
+          &.address {
+            background: url("/images/icon.placemark.png") 222px 50% no-repeat;
+          }
+          &.phones {
+            background: url("/images/icon.phone.png") 215px 8px no-repeat;
+          }
         }
         h4 {
           color: #fff;
@@ -49,7 +59,7 @@
         }
         &.address-block {
           p {
-            font-size: 16px;
+            font-size: 14px;
           }
         }
       }

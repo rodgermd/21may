@@ -14,10 +14,10 @@
       <div class="column-right">
         <div class="address-block column-right-element">
           <div class="decorator"></div>
-          <p>Eberhard 560 Puerto Natales<br/>
+          <p class="address">Eberhard 560 Puerto Natales<br/>
             Patagonia - Chile.</p>
 
-          <p>Tel + 56 61 614420<br/>
+          <p class="phones">Tel + 56 61 614420<br/>
             Fax + 56 61 614423<br/>
             <a href="mailto:21demayo@chileaustral.com">21demayo@chileaustral.com</a></p>
         </div>
@@ -27,7 +27,7 @@
             <ul class="gallery-images">
               {% for image in images %}
                 <li><a href="{{ image | uploaded_image_uri('gallery_maximum') }}"
-                       rel="about-us-gallery" class="lightbox-image"
+                       rel="content" class="lightbox-image"
                        title="{{ image.title }}">{{ image|uploaded_image('gallery_preview') }}</a></li>
               {% endfor %}
             </ul>
@@ -50,4 +50,12 @@
   filter="compass, ?yui_css" %}
   <link rel="stylesheet" href="{{ asset_url }}"/>
   {% endstylesheets %}
+  <link rel="stylesheet" href="/colorbox/colorbox.css"/>
 {% endblock stylesheets %}
+
+
+{% block javascripts %}
+  {{ parent() }}
+  <script src="/colorbox/jquery.colorbox.js" type="text/javascript"></script>
+  <script src="{{ asset('bundles/sitebase/js/colorbox_init.js') }}"></script>
+{% endblock javascripts %}
