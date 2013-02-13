@@ -140,10 +140,6 @@ body {
     @include bg_checks_black_dark;
     padding: 14px 25px;
     height: 92px;
-
-    &:hover {
-      @include bg_stripes_red;
-    }
     text-align: center;
   }
   tr:last-child a.single {
