@@ -3,28 +3,28 @@
   {% spaceless %}
     <ul id="header-menu">
       <li id="menu-home">
-        <a href="{{ path('homepage') }}" title="{{ 'Home page' | trans }}" id="link-to-home">
+        <a href="{{ path('homepage') }}" title="{{ 'menu.homepage' | trans }}" id="link-to-home">
           <img src="/images/logo.png" width="197" height="97" id="logo-white"/>
         </a>
       </li>
       <li id="menu-accommodations" class="has-submenu{% if selected_menu == 'accommodation' %} active{% endif %}">
-        <a href="{{ path('accommodations') }}">{{ 'Accommodation' | trans }}</a>
+        <a href="{{ path('accommodations') }}">{{ 'menu.accommodation' | trans }}</a>
         {% render controller("SiteBaseBundle:Accommodation:menu_list") %}
       </li>
       <li id="menu-routes" class="has-submenu{% if selected_menu == 'routes' %} active{% endif %}">
-        <a href="{{ path('routes') }}">{{ 'Routes' | trans }} + <br/>{{ 'Accommodation' | trans }}</a>
+        <a href="{{ path('routes') }}">{{ 'menu.routes' | trans }} + <br/>{{ 'menu.accommodation' | trans }}</a>
         {% render controller("SiteBaseBundle:Route:menu_list") %}
       </li>
       <li id="menu-about-us" {% if selected_menu == 'about-us' %}class="active"{% endif %}>
-        <a href="{{ path('pages.about_us') }}">{{ 'About us' | trans }}</a>
+        <a href="{{ path('pages.about_us') }}">{{ 'menu.aboutus' | trans }}</a>
       </li>
       <li id="menu-contacts-blog" class="split">
         <ul>
           <li{% if selected_menu == 'contacts' %} class="active"{% endif %}>
-            <a href="{{ path('contact') }}">{{ 'Contacts' | trans }}</a>
+            <a href="{{ path('contact') }}">{{ 'menu.contacts' | trans }}</a>
           </li>
           <li{% if selected_menu == 'blog' %} class="active"{% endif %}>
-            <a href="/blog">{{ 'Blog' | trans }}</a>
+            <a href="/blog">{{ 'menu.blog' | trans }}</a>
           </li>
         </ul>
       </li>
