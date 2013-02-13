@@ -1,3 +1,5 @@
+@import "definitions";
+
 #footer {
   @include font-bold;
   text-shadow: 0 0 2px #000;
@@ -38,26 +40,35 @@
 
     &.menu-history {
       background: url('/images/history.image.png');
+      .footer-section-icon {
+        background: url('/images/icon.history.png') 0 0 no-repeat;
+      }
     }
     &.menu-about-us {
       background: url('/images/nosotros.image.png');
+      .footer-section-icon {
+        background: url('/images/icon.about_us.png') 0 0 no-repeat;
+      }
     }
     &.menu-blog {
       background: url('/images/blog.image.png');
+      .footer-section-icon {
+        background: url('/images/icon.blog.png') 0 0 no-repeat;
+      }
     }
 
-    img {
-      display: none;
+    span.footer-section-icon {
+      display: block;
       position: absolute;
-      width: 67px;
-      height: 67px;
+      width: 61px;
+      height: 61px;
       top: $height / 2;
       left: $width / 2;
-      margin-left: -33px;
-      margin-top: -33px;
+      margin-left: -31px;
+      margin-top: -31px;
     }
-    &:hover img {
-      display: block;
+    &:hover span.footer-section-icon {
+      background-position: 100% 0;
     }
 
     span {
