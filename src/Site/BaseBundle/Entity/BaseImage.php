@@ -3,20 +3,15 @@
 namespace Site\BaseBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Symfony\Component\Validator\Constraints as Assert;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * @ORM\Table(name="gallery_images")
- * @ORM\InheritanceType("SINGLE_TABLE")
- * @ORM\Entity()
- * @ORM\DiscriminatorColumn(name="gallery", type="string")
- * @ORM\DiscriminatorMap({"aboutus" = "AboutUsImage"})
- * @Vich\Uploadable
+ * @ORM\MappedSuperclass
  */
-class GalleryImage
+class BaseImage
 {
   /**
    * @var integer
@@ -25,19 +20,19 @@ class GalleryImage
    * @ORM\Id
    * @ORM\GeneratedValue(strategy="AUTO")
    */
-  private $id;
+  protected $id;
 
   /**
    * @ORM\Column(name="title", type="string", length=128, nullable=true)
    * @var string $title
    */
-  private $title;
+  protected $title;
 
   /**
    * @var string
    * @ORM\Column(name="stack_order", type="integer")
    */
-  private $stack_order = 0;
+  protected $stack_order = 0;
 
   /**
    * @var string
@@ -51,15 +46,18 @@ class GalleryImage
    * @Gedmo\Timestampable(on="create")
    * @ORM\Column(name="created_at", type="datetime")
    */
-  private $created_at;
+  protected $created_at;
 
   /**
    * @var \DateTime
    * @Gedmo\Timestampable(on="update")
    * @ORM\Column(name="updated_at", type="datetime")
    */
-  private $updated_at;
+  protected $updated_at;
 
+  /**
+   * @var UploadedFile $file
+   */
   protected $file;
 
 
@@ -82,7 +80,7 @@ class GalleryImage
    * Set stack_order
    *
    * @param integer $stackOrder
-   * @return AccommodationImage
+   * @return \Site\BaseBundle\Entity\BaseImage
    */
   public function setStackOrder($stackOrder)
   {
@@ -113,7 +111,7 @@ class GalleryImage
   /**
    * Sets title
    * @param $title
-   * @return \Site\BaseBundle\Entity\GalleryImage
+   * @return \Site\BaseBundle\Entity\BaseImage
    */
   public function setTitle($title)
   {
@@ -126,7 +124,7 @@ class GalleryImage
    * Set filename
    *
    * @param string $filename
-   * @return AccommodationImage
+   * @return \Site\BaseBundle\Entity\BaseImage
    */
   public function setFilename($filename)
   {
@@ -157,7 +155,7 @@ class GalleryImage
   /**
    * Sets file
    * @param \Symfony\Component\HttpFoundation\File\UploadedFile $file
-   * @return AccommodationImage
+   * @return \Site\BaseBundle\Entity\BaseImage
    */
   public function setFile(UploadedFile $file)
   {

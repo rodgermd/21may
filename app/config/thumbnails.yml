@@ -26,6 +26,14 @@ services:
       tags:
         - { name: 'liip_imagine.data.loader', loader: 'stream.gallery' }
 
+  liip_imagine.data.loader.stream.blog:
+        class: "%liip_imagine.data.loader.stream.class%"
+        arguments:
+          - "@liip_imagine"
+          - 'gaufrette://blog_fs/'
+        tags:
+          - { name: 'liip_imagine.data.loader', loader: 'stream.blog' }
+
 
 knp_gaufrette:
   stream_wrapper: ~
@@ -39,6 +47,9 @@ knp_gaufrette:
     gallery:
       local:
         directory: %kernel.root_dir%/../web/uploads/galleries
+    blogs:
+      local:
+        directory: %kernel.root_dir%/../web/uploads/blogs
 
   filesystems:
     accommodation_fs:
@@ -47,6 +58,8 @@ knp_gaufrette:
       adapter:    route
     gallery_fs:
       adapter:    gallery
+    blog_fs:
+      adapter:    blogs
 
 vich_uploader:
   db_driver: orm
@@ -56,15 +69,19 @@ vich_uploader:
     accommodation:
       uri_prefix: /
       upload_destination: accommodation_fs
-      namer: uploader.namer.md5
+      namer: rodgermd.vichuploader.namer_md5
     route:
       uri_prefix: /
       upload_destination: route_fs
-      namer: uploader.namer.md5
+      namer: rodgermd.vichuploader.namer_md5
     galleries:
       uri_prefix: /
       upload_destination: gallery_fs
-      namer: uploader.namer.md5
+      namer: rodgermd.vichuploader.namer_md5
+    blogs:
+      uri_prefix: /
+      upload_destination: blog_fs
+      namer: rodgermd.vichuploader.namer_md5
 
 liip_imagine:
   driver: imagick
@@ -187,4 +204,22 @@ liip_imagine:
       data_loader: stream.gallery
       filters:
         thumbnail: { size: [2000, 2000], mode: inset }
+
+  ##########
+  # Blogs
+  ##########
+
+    blog_admin_preview:
+      data_loader: stream.blog
+      filters:
+        thumbnail: { size: [150, 150], mode: outbound }
+    blog_admin_small:
+      data_loader: stream.blog
+      filters:
+        thumbnail: { size: [50, 50], mode: outbound }
+
+    blog_preview:
+      data_loader: stream.blog
+      filters:
+        thumbnail: { size: [312, 200], mode: outbound }
 
