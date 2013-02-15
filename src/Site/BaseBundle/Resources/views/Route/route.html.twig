@@ -67,9 +67,7 @@
 
 {% block stylesheets %}
   {{ parent() }}
-  {% stylesheets
-  "@SiteBaseBundle/Resources/assets/css/route.scss"
-  filter="compass, ?yui_css" %}
+  {% stylesheets "@SiteBaseBundle/Resources/assets/css/route.scss" filter="compass,yui_css" %}
   <link rel="stylesheet" href="{{ asset_url }}"/>
   {% endstylesheets %}
 {% endblock stylesheets %}

@@ -49,6 +49,8 @@ assetic:
       compass: ~
       yui_css:
         jar: %yui_compressor%
+      yui_js:
+        jar: %yui_compressor%
 
 # Doctrine Configuration
 doctrine:
