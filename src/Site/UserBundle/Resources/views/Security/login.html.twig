@@ -1,0 +1,40 @@
+{% extends "::fos_single_layout.html.twig" %}
+
+{% block dialog_header %}
+  {{ 'Secure area' | trans }}
+{% endblock dialog_header %}
+
+{% block dialog_class %}secured-pages{% endblock dialog_class %}
+
+{% block dialog_body %}
+{% if error %}
+    <div class="error">{{ error|trans({}, 'FOSUserBundle') }}</div>
+{% endif %}
+
+<form action="{{ path("fos_user_security_check") }}" method="post" id="form">
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+
+    <label for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
+    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" class="span5" />
+
+    <label for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
+    <input type="password" id="password" name="_password" required="required" class="span5" />
+</form>
+{% endblock dialog_body %}
+
+{% block dialog_footer %}
+  <label for="remember_me" class="pull-left">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }} <input type="checkbox" id="remember_me" name="_remember_me" value="on" /></label>
+  <button class="btn btn-success" onclick="document.getElementById('form').submit()">{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}</button>
+{% endblock dialog_footer %}
+
+{% block stylesheets %}
+  {{ parent() }}
+  <style>
+    .modal { width: 410px; margin-left: -205px}
+    label [type=checkbox] { margin-top: 0 }
+    .error {
+      padding: 5px 0;
+      color: red;
+    }
+  </style>
+{% endblock stylesheets %}

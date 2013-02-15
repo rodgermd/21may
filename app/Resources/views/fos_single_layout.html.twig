@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <title>{% block title %}21 May{% endblock %}</title>
+  {% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}"/>
+  {% endblock %}
+  <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+</head>
+<body>
+
+<div class="modal {% block dialog_class %}{% endblock dialog_class %}">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3>{% block dialog_header %}{% endblock dialog_header %}</h3>
+  </div>
+  <div class="modal-body">
+    {% block dialog_body %}{% endblock dialog_body %}
+  </div>
+  <div class="modal-footer">
+    {% block dialog_footer %}
+    {% endblock dialog_footer %}
+  </div>
+</div>
+
+</body>
+</html>
