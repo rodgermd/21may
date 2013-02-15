@@ -46,10 +46,11 @@
 {% block stylesheets %}
   {{ parent() }}
   {% stylesheets
-  "@SiteBaseBundle/Resources/assets/css/pages.scss" "/colorbox/colorbox.css"
+  "@SiteBaseBundle/Resources/assets/css/pages.scss"
   filter="compass,yui_css" %}
   <link rel="stylesheet" href="{{ asset_url }}"/>
   {% endstylesheets %}
+  <link rel="stylesheet" href="/colorbox/colorbox.css"/>
 {% endblock stylesheets %}
 
 
