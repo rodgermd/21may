@@ -1,7 +1,8 @@
 @import "definitions";
 
 .blogs-list {
-  margin: 0; padding: 0;
+  margin: 0;
+  padding: 0;
   li {
     list-style: none;
     @include inline-block;
@@ -35,6 +36,42 @@
       width: 102px;
       margin-left: 15px;
       @include font-bold;
+    }
+  }
+}
+
+.blog-page {
+  a.back {
+  }
+  .row {
+    margin: 0;
+    overflow: hidden;
+  }
+  .images-wrapper, .blog-content-wrapper {
+    @include bg_checks_black_mid;
+  }
+  .images-wrapper {
+    margin-right: 19px;
+    padding: 17px 26px;
+    img {
+      display: block;
+      + img {
+        margin-top: 17px;
+      }
+    }
+  }
+  .blog-content-wrapper {
+    overflow: hidden;
+    padding: 17px;
+    h1 {
+      color: #fff;
+      @include font-light;
+      width: 50%;
+      font-size: 24px;
+      text-transform: uppercase;
+    }
+    p {
+      color: $light;
     }
   }
 }

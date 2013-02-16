@@ -29,6 +29,7 @@ class BlogController extends Controller
 
   /**
    * @Route("/{slug}", name="blogs.show")
+   * @Template()
    * @param \Site\BaseBundle\Entity\Blog $blog
    * @return array
    */

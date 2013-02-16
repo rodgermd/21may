@@ -10,7 +10,7 @@
         <li class="{% if blog.images | length %}has-image{% else %}no-image{% endif %}">
           <a href="{{ path("blogs.show", { slug: blog.slug }) }}">
             {% if blog.images | length %}
-              {{ blog.images.first | uploaded_image('blog_preview') }}
+              {{ blog.images.first | uploaded_image('blog_list') }}
             {% endif %}
             <span>{{ blog.title }}</span>
           </a>
