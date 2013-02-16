@@ -41,6 +41,19 @@
       </call>
     </service>
 
+    <service id="sonata.admin.blog" class="Site\AdminBundle\Admin\BlogAdmin">
+      <tag name="sonata.admin" manager_type="orm" group="Content" label="Blogs"/>
+      <argument/>
+      <argument>Site\BaseBundle\Entity\Blog</argument>
+      <argument>SiteAdminBundle:BlogAdmin</argument>
+      <call method="setTranslationDomain">
+        <argument>SiteAdminBundle</argument>
+      </call>
+      <call method="setAvailableLanguages">
+        <argument>%languages%</argument>
+      </call>
+    </service>
+
     <service id="sonata.admin.accommodation_image" class="Site\AdminBundle\Admin\AccommodationImageAdmin">
       <tag name="sonata.admin" manager_type="orm" group="Images" label="Accommodations Images"/>
       <argument/>
@@ -56,6 +69,16 @@
       <argument/>
       <argument>Site\BaseBundle\Entity\RouteImage</argument>
       <argument>SiteAdminBundle:RouteImageAdmin</argument>
+      <call method="setTranslationDomain">
+        <argument>SiteAdminBundle</argument>
+      </call>
+    </service>
+
+    <service id="sonata.admin.blog_image" class="Site\AdminBundle\Admin\BlogImageAdmin">
+      <tag name="sonata.admin" manager_type="orm" group="Images" label="Blog Images"/>
+      <argument/>
+      <argument>Site\BaseBundle\Entity\BlogImage</argument>
+      <argument>SiteAdminBundle:BlogImageAdmin</argument>
       <call method="setTranslationDomain">
         <argument>SiteAdminBundle</argument>
       </call>
