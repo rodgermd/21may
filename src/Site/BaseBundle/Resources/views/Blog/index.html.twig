@@ -1,0 +1,28 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}21 May - {{ 'Blogs' | trans }}{% endblock title %}
+{% block selected_menu %}blog{% endblock selected_menu %}
+
+{% block content %}
+  {% spaceless %}
+    <ul class="blogs-list">
+      {% for blog in blogs %}
+        <li class="{% if blog.images | length %}has-image{% else %}no-image{% endif %}">
+          <a href="{{ path("blogs.show", { slug: blog.slug }) }}">
+            {% if blog.images | length %}
+              {{ blog.images.first | uploaded_image('blog_preview') }}
+            {% endif %}
+            <span>{{ blog.title }}</span>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endspaceless %}
+{% endblock content %}
+
+{% block stylesheets %}
+  {{ parent() }}
+  {% stylesheets "@SiteBaseBundle/Resources/assets/css/blogs.scss" filter="compass,yui_css" %}
+  <link rel="stylesheet" href="{{ asset_url }}"/>
+  {% endstylesheets %}
+{% endblock stylesheets %}

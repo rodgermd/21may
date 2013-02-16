@@ -24,7 +24,7 @@
             <a href="{{ path('contact') }}">{{ 'menu.contacts' | trans }}</a>
           </li>
           <li{% if selected_menu == 'blog' %} class="active"{% endif %}>
-            <a href="/blog">{{ 'menu.blog' | trans }}</a>
+            <a href="{{ path('blogs.index') }}">{{ 'menu.blog' | trans }}</a>
           </li>
         </ul>
       </li>

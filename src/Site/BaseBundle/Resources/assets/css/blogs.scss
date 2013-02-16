@@ -1,0 +1,40 @@
+@import "definitions";
+
+.blogs-list {
+  margin: 0; padding: 0;
+  li {
+    list-style: none;
+    @include inline-block;
+    margin: 0 12px 12px 0;
+    a {
+      display: block;
+      $padding: 20px;
+      width: 367px - $padding * 2;
+      height: 238px - $padding * 2;
+      padding: $padding;
+      @include bg_checks_black_mid;
+      &:hover {
+        text-decoration: none;
+        @include bg_checks_black_light;
+      }
+    }
+    img, span {
+      @include inline-block;
+      vertical-align: bottom;
+    }
+    img {
+      box-shadow: 0 0 2px #000;
+    }
+    span {
+      text-transform: uppercase;
+      color: #fff;
+      font-size: 18px;
+      @include text-shadow;
+    }
+    &.has-image span {
+      width: 102px;
+      margin-left: 15px;
+      @include font-bold;
+    }
+  }
+}

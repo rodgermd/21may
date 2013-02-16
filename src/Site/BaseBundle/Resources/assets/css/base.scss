@@ -133,8 +133,10 @@ body {
     padding: 20px 15px;
     height: 80px;
   }
-  > li.active > a {
+  li.active, li.split li.active {
+    > a {
     @include bg_stripes_red;
+    }
   }
   #link-to-home {
     @include bg_checks_black_dark;

@@ -217,9 +217,10 @@ liip_imagine:
       data_loader: stream.blog
       filters:
         thumbnail: { size: [50, 50], mode: outbound }
-
     blog_preview:
       data_loader: stream.blog
       filters:
-        thumbnail: { size: [312, 200], mode: outbound }
+        thumbnail: { size: [200, 200], mode: outbound }
+
+
 
