@@ -27,7 +27,7 @@ class RouteAdmin extends Admin
     $subject = $form->getAdmin()->getSubject();
 
     $form
-      ->add('accomodation')
+      ->add('accommodation')
       ->add('iframe_code')
       ->add('translations', 'translatable_field', array(
       'personal_translation' => 'Site\BaseBundle\Entity\AccommodationTranslation',
