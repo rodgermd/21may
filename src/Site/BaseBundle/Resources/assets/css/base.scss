@@ -41,6 +41,7 @@ body {
 /*********/
 #header {
   @include font-bold;
+  position: relative;
   a {
     color: #fff;
     @include text-shadow;
@@ -50,6 +51,28 @@ body {
     padding: 0;
     li {
       list-style: none;
+    }
+  }
+  a.language-switcher {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: -23px;
+    width: 23px;
+    height: 30px;
+    background: url('/images/flags.png') 0 0 no-repeat;
+    opacity: .7;
+    i {
+      display: none;
+    }
+    &.locale-en {
+
+    }
+    &.locale-es {
+      background-position: 100% 0;
+    }
+    &:hover {
+      opacity: 1;
     }
   }
 }

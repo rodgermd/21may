@@ -29,5 +29,10 @@
         </ul>
       </li>
     </ul>
+    {% render controller('SiteBaseBundle:Language:switch', {
+    route: app.request.get('_route'),
+    route_params: app.request.get('_route_params'),
+    current: app.request.locale
+    }) %}
   {% endspaceless %}
 </div>
