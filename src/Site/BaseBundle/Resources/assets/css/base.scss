@@ -20,6 +20,7 @@ body {
   position: relative;
   z-index: 2;
 }
+
 #background-container {
   position: absolute;
   z-index: 1;
@@ -145,7 +146,7 @@ body {
     margin-right: 0;
   }
   > li, li.split li {
-   > a {
+    > a {
       @include bg_checks_black_light;
       &:hover {
         @include bg_stripes_red;
@@ -158,7 +159,7 @@ body {
   }
   li.active, li.split li.active {
     > a {
-    @include bg_stripes_red;
+      @include bg_stripes_red;
     }
   }
   #link-to-home {
@@ -284,3 +285,32 @@ ul.errors {
   }
 }
 
+ul.social-networks {
+  padding-top: 20px;
+  li {
+    @include inline-block;
+    list-style: none;
+    & + li {
+      margin-left: 4px;
+    }
+    a {
+      display: block;
+      width: 30px;
+      height: 28px;
+      background: url('/images/social_icons.fw.png') 0 0 no-repeat;
+      &.facebook {
+        background-position: -4px -5px;
+      }
+      &.vimeo {
+        background-position: -34px -5px;
+      }
+      &.flickr {
+        background-position: -64px -5px;
+      }
+      &:hover {
+        border-radius: 4px;
+        box-shadow: 0 0 5px rgba(255,255,255,.3);
+      }
+    }
+  }
+}
