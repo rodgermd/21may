@@ -1,6 +1,7 @@
 <body>
-<h1>Contact message from 21may</h1>
+<h1>{% block title %}Contact message from 21may{% endblock title %}</h1>
 
+{% block fields %}
 <table>
   <tbody>
   {% if model.name %}
@@ -32,6 +33,8 @@
   {% endif %}
   </tbody>
 </table>
+
+{% endblock fields %}
 
 {% if model.message %}
 <h2>Message:</h2>

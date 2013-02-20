@@ -4,21 +4,13 @@ namespace Site\BaseBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class RouteContactType extends ContactType
 {
-  public function buildForm(FormBuilderInterface $builder, array $options)
+  public function setDefaultOptions(OptionsResolverInterface $resolver)
   {
-    parent::buildForm($builder, $options);
-    $builder
-      ->add('route', 'hidden')
-    ;
-  }
-
-  public function getDefaultOptions(array $options)
-  {
-    $options['data_class'] = 'Site\BaseBundle\Model\RouteContactModel';
-    return $options;
+    $resolver->replaceDefaults(array('data_class' => 'Site\BaseBundle\Model\RouteContactModel'));
   }
 
   public function getName() {

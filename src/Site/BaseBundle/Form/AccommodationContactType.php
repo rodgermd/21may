@@ -4,24 +4,17 @@ namespace Site\BaseBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class AccommodationContactType extends ContactType
 {
-  public function buildForm(FormBuilderInterface $builder, array $options)
+  public function setDefaultOptions(OptionsResolverInterface $resolver)
   {
-    parent::buildForm($builder, $options);
-    $builder
-      ->add('accommodation', 'hidden')
-    ;
+    $resolver->replaceDefaults(array('data_class' => 'Site\BaseBundle\Model\AccommodationContactModel'));
   }
 
-  public function getDefaultOptions(array $options)
+  public function getName()
   {
-    $options['data_class'] = 'Site\BaseBundle\Model\AccommodationContactModel';
-    return $options;
-  }
-
-  public function getName() {
     return 'book_accommodation';
   }
 }
