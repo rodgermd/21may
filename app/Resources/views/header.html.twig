@@ -7,13 +7,13 @@
           <img src="/images/logo.png" width="197" height="97" id="logo-white"/>
         </a>
       </li>
+      <li id="menu-routes" class="has-submenu{% if selected_menu == 'routes' %} active{% endif %}">
+        <a href="{{ path('routes') }}">{{ 'menu.routes' | trans }}</a>
+        {% render controller("SiteBaseBundle:Route:menu_list") %}
+      </li>
       <li id="menu-accommodations" class="has-submenu{% if selected_menu == 'accommodation' %} active{% endif %}">
         <a href="{{ path('accommodations') }}">{{ 'menu.accommodation' | trans }}</a>
         {% render controller("SiteBaseBundle:Accommodation:menu_list") %}
-      </li>
-      <li id="menu-routes" class="has-submenu{% if selected_menu == 'routes' %} active{% endif %}">
-        <a href="{{ path('routes') }}">{{ 'menu.routes' | trans }} + <br/>{{ 'menu.accommodation' | trans }}</a>
-        {% render controller("SiteBaseBundle:Route:menu_list") %}
       </li>
       <li id="menu-about-us" {% if selected_menu == 'about-us' %}class="active"{% endif %}>
         <a href="{{ path('pages.about_us') }}">{{ 'menu.aboutus' | trans }}</a>

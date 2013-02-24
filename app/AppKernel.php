@@ -38,6 +38,7 @@ class AppKernel extends Kernel
       new Site\AdminBundle\SiteAdminBundle(),
 
       new Rodgermd\SfToolsBundle\RodgermdSfToolsBundle(),
+      new Rodgermd\CompassBundle\RodgermdCompassBundle(),
       new Ladela\PersonalTranslationsWidgetBundle\PersonalTranslationsWidgetBundle(),
       new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
     );

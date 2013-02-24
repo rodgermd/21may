@@ -32,6 +32,7 @@
     "sonata-project/cache-bundle" : "dev-master",
     "sonata-project/intl-bundle" : "dev-master",
     "rodgermd/sftools-bundle" : "dev-master",
+    "rodgermd/compass-bundle" : "dev-master",
     "ladela/personal-translations-widget-bundle": "dev-master",
     "stfalcon/tinymce-bundle": "dev-master"
   },
