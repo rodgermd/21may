@@ -19,6 +19,7 @@ class ContactModel {
   /**
    * @var string $email
    * @Assert\Email
+   * @Assert\NotBlank
    */
   protected $email;
 
