@@ -70,4 +70,12 @@
   {% stylesheets "@SiteBaseBundle/Resources/assets/css/route.scss" filter="compass,yui_css" %}
   <link rel="stylesheet" href="{{ asset_url }}"/>
   {% endstylesheets %}
+  <link rel="stylesheet" href="/colorbox/colorbox.css"/>
 {% endblock stylesheets %}
+
+{% block javascripts %}
+  {{ parent() }}
+  {% javascripts "colorbox/jquery.colorbox.js" "bundles/sitebase/js/colorbox_init.js" filter="yui_js" %}
+  <script src="{{ asset_url }}"></script>
+  {% endjavascripts %}
+{% endblock javascripts %}
