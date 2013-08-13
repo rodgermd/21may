@@ -31,7 +31,7 @@ class ContactModel {
   /**
    * @var string $message
    * @Assert\NotBlank
-   * @Assert\MinLength(limit=10, message="Enter 10 symbols or more|Enter 10 symbols or more")
+   * @Assert\Length(min=10, minMessage="Enter 10 symbols or more|Enter 10 symbols or more")
    */
   protected $message;
 
