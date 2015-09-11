@@ -13,9 +13,6 @@
 /web/js
 /web/uploads
 /web/media
-/composer
-/composer.phar
-/composer.lock
 
 
 ############

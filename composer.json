@@ -1,68 +1,68 @@
 {
-  "name": "symfony/framework-standard-edition",
-  "description": "The \"Symfony Standard Edition\" distribution",
-  "autoload": {
-    "psr-0": {
-      "": "src/"
+  "name"              : "symfony/framework-standard-edition",
+  "description"       : "The \"Symfony Standard Edition\" distribution",
+  "autoload"          : {
+    "psr-0" : {
+      "" : "src/"
     }
   },
-  "require": {
-    "php": ">=5.3.3",
-    "symfony/symfony": "2.3.*",
-    "doctrine/orm": "2.3.*@stable",
-    "doctrine/doctrine-bundle": "1.2.*",
-    "twig/extensions": "1.0.*",
-    "symfony/assetic-bundle": "2.4.*",
-    "symfony/swiftmailer-bundle": "2.3.*",
-    "symfony/monolog-bundle": "2.3.*",
-    "sensio/distribution-bundle": "2.3.*",
-    "sensio/framework-extra-bundle": "2.3.*",
-    "sensio/generator-bundle": "2.3.*",
-    "incenteev/composer-parameter-handler": "~2.0",
-    "jms/security-extra-bundle": "1.5.*",
-
-    "stof/doctrine-extensions-bundle": "dev-master",
-    "friendsofsymfony/user-bundle": "*",
-    "liip/imagine-bundle": "dev-master",
-    "vich/uploader-bundle": "dev-master",
-    "knplabs/knp-gaufrette-bundle": "dev-master",
-    "doctrine/doctrine-fixtures-bundle": "dev-master",
-
-
-    "sonata-project/admin-bundle": "2.2.x@dev",
-    "sonata-project/doctrine-orm-admin-bundle": "dev-master",
-    "sonata-project/cache-bundle": "dev-master",
-    "sonata-project/intl-bundle": "dev-master",
-    "rodgermd/sftools-bundle": "dev-master",
-    "rodgermd/compass-bundle": "dev-master",
-    "ladela/personal-translations-widget-bundle": "dev-master",
-
-    "stfalcon/tinymce-bundle": "dev-master"
+  "require"           : {
+    "php"                                        : ">=5.5.3",
+    "symfony/symfony"                            : "@stable",
+    "doctrine/orm"                               : "@stable",
+    "doctrine/doctrine-bundle"                   : "@stable",
+    "doctrine/dbal"                              : "@stable",
+    "twig/extensions"                            : "@stable",
+    "symfony/assetic-bundle"                     : "@stable",
+    "symfony/swiftmailer-bundle"                 : "@stable",
+    "symfony/monolog-bundle"                     : "@stable",
+    "sensio/distribution-bundle"                 : "@stable",
+    "sensio/framework-extra-bundle"              : "@stable",
+    "sensio/generator-bundle"                    : "@stable",
+    "incenteev/composer-parameter-handler"       : "~2.0",
+    "jms/security-extra-bundle"                  : "@stable",
+    "stof/doctrine-extensions-bundle"            : "dev-master",
+    "friendsofsymfony/user-bundle"               : "@stable",
+    "liip/imagine-bundle"                        : "@stable",
+    "vich/uploader-bundle"                       : "@stable",
+    "knplabs/knp-gaufrette-bundle"               : "@stable",
+    "doctrine/doctrine-fixtures-bundle"          : "@stable",
+    "sonata-project/admin-bundle"                : "@stable",
+    "sonata-project/doctrine-orm-admin-bundle"   : "@stable",
+    "sonata-project/cache-bundle"                : "@stable",
+    "sonata-project/intl-bundle"                 : "@stable",
+    "sonata-project/jquery-bundle"               : "@stable",
+    "rodgermd/sftools-bundle"                    : "@stable",
+    "rodgermd/compass-bundle"                    : "*",
+    "ladela/personal-translations-widget-bundle" : "@stable",
+    "stfalcon/tinymce-bundle"                    : "@stable"
   },
-  "scripts": {
-    "post-install-cmd": [
+  "scripts"           : {
+    "post-install-cmd" : [
+      "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
       "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
       "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
       "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
       "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
     ],
-    "post-update-cmd": [
+    "post-update-cmd"  : [
       "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
       "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
       "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
       "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
     ]
   },
-  "minimum-stability": "dev",
-  "extra": {
-    "symfony-app-dir": "app",
-    "symfony-web-dir": "web",
-    "symfony-assets-install": "symlink",
-    "incenteev-parameters": {
-      "file": "app/config/parameters.yml"
+  "minimum-stability" : "dev",
+  "extra"             : {
+    "symfony-app-dir"        : "app",
+    "symfony-web-dir"        : "web",
+    "symfony-assets-install" : "symlink",
+    "incenteev-parameters"   : {
+      "file"      : "app/config/parameters.yml",
+      "dist-file" : "app/config/parameters.sample.yml"
     },
-    "branch-alias": {
-      "dev-master": "2.3-dev"
+    "branch-alias"           : {
+      "dev-master" : "2.7-dev"
     }
   }
 }
