@@ -11,9 +11,8 @@
 /web/bundles
 /web/css
 /web/js
-/web/uploads
 /web/media
-
+/backups
 
 ############
 ## Windows

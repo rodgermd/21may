@@ -11,3 +11,4 @@ parameters:
     dev_mailer_transport:  gmail
     dev_mailer_user:       ~
     dev_mailer_password:   ~
+
