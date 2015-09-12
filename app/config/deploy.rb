@@ -22,7 +22,7 @@ set :update_vendors,  false
 set :use_sudo,        true
 set :user,            "ubuntu"
 
-set :writable_dirs,     ["app/cache", "app/logs", "web"]
+set :writable_dirs,     ["app/cache", "app/logs", "web", "web/media"]
 set :webserver_user,    "www-data"
 set :permission_method, :acl
 
