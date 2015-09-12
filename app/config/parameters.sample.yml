@@ -1,7 +1,4 @@
 parameters:
-    database_driver:   pdo_mysql
-    database_host:     localhost
-    database_port:     ~
     database_name:     symfony
     database_user:     root
     database_password: ~
@@ -14,8 +11,3 @@ parameters:
     dev_mailer_transport:  gmail
     dev_mailer_user:       ~
     dev_mailer_password:   ~
-
-    locale:            en
-    secret:            ThisTokenIsNotSoSecretChangeIt
-
-    yui_compressor: /usr/share/yui-compressor/yui-compressor.jar

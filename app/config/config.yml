@@ -1,5 +1,6 @@
 imports:
     - { resource: parameters.yml }
+    - { resource: parameters.private.yml }
     - { resource: security.yml }
     - { resource: thumbnails.yml }
     - { resource: doctrine_extensions.yml }
@@ -103,8 +104,6 @@ stof_doctrine_extensions:
       sluggable: true
       translatable: true
 
-personal_translations_widget:
-  languages: %languages%
 
 site_base:
   emails:

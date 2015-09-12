@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b531bfce137b15f79bba3ecc9925bcf4",
+    "hash": "cd491c346580131f33b7685b5aaaa662",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -445,16 +445,16 @@
         },
         {
             "name": "doctrine/dbal",
-            "version": "2.5.x-dev",
+            "version": "v2.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "5fbb8ae45c716c23e9dfb0396c831cfdeb4d0d2d"
+                "reference": "628c2256b646ae2417d44e063bce8aec5199d48d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/5fbb8ae45c716c23e9dfb0396c831cfdeb4d0d2d",
-                "reference": "5fbb8ae45c716c23e9dfb0396c831cfdeb4d0d2d",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/628c2256b646ae2417d44e063bce8aec5199d48d",
+                "reference": "628c2256b646ae2417d44e063bce8aec5199d48d",
                 "shasum": ""
             },
             "require": {
@@ -512,7 +512,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2015-09-11 16:08:54"
+            "time": "2015-01-12 21:52:47"
         },
         {
             "name": "doctrine/doctrine-bundle",
@@ -1948,7 +1948,7 @@
         },
         {
             "name": "ladela/personal-translations-widget-bundle",
-            "version": "dev-master",
+            "version": "v0.6.7",
             "target-dir": "Ladela/PersonalTranslationsWidgetBundle",
             "source": {
                 "type": "git",
@@ -2282,7 +2282,7 @@
         },
         {
             "name": "rodgermd/sftools-bundle",
-            "version": "dev-master",
+            "version": "v0.5.10",
             "target-dir": "Rodgermd/SfToolsBundle",
             "source": {
                 "type": "git",
@@ -2812,16 +2812,16 @@
         },
         {
             "name": "sonata-project/core-bundle",
-            "version": "dev-master",
+            "version": "2.3.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataCoreBundle.git",
-                "reference": "740faff31ceda763a9887bc05141c3040d2ec2cf"
+                "reference": "4d6f441f9f0eaa8232eb87c6aa5bf145586e141f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataCoreBundle/zipball/740faff31ceda763a9887bc05141c3040d2ec2cf",
-                "reference": "740faff31ceda763a9887bc05141c3040d2ec2cf",
+                "url": "https://api.github.com/repos/sonata-project/SonataCoreBundle/zipball/4d6f441f9f0eaa8232eb87c6aa5bf145586e141f",
+                "reference": "4d6f441f9f0eaa8232eb87c6aa5bf145586e141f",
                 "shasum": ""
             },
             "require": {
@@ -2877,7 +2877,7 @@
             "keywords": [
                 "sonata"
             ],
-            "time": "2015-08-28 08:47:17"
+            "time": "2015-08-27 12:31:44"
         },
         {
             "name": "sonata-project/doctrine-orm-admin-bundle",
@@ -3747,6 +3747,7 @@
         "symfony/symfony": 0,
         "doctrine/orm": 0,
         "doctrine/doctrine-bundle": 0,
+        "doctrine/dbal": 0,
         "twig/extensions": 0,
         "symfony/assetic-bundle": 0,
         "symfony/swiftmailer-bundle": 0,
@@ -3762,15 +3763,18 @@
         "knplabs/knp-gaufrette-bundle": 0,
         "doctrine/doctrine-fixtures-bundle": 0,
         "sonata-project/admin-bundle": 0,
+        "sonata-project/core-bundle": 0,
         "sonata-project/doctrine-orm-admin-bundle": 0,
         "sonata-project/cache-bundle": 0,
         "sonata-project/intl-bundle": 0,
+        "rodgermd/sftools-bundle": 0,
+        "ladela/personal-translations-widget-bundle": 0,
         "stfalcon/tinymce-bundle": 0
     },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.3.3"
+        "php": ">=5.5.3"
     },
     "platform-dev": []
 }

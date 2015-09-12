@@ -4,3 +4,8 @@ services:
     arguments: [@service_container, @liip_imagine.twig.extension]
     tags:
     - { name: twig.extension }
+
+  site.languages_getter:
+    class: Site\BaseBundle\Languages\LanguagesGetter
+    arguments: [%languages%]
+    tags: [{ name: languages_getter }]

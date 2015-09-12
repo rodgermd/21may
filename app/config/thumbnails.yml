@@ -3,36 +3,32 @@ services:
     class: Site\BaseBundle\Namer\MD5FileNamer
 
   liip_imagine.data.loader.stream.accommodation:
-    class: "%liip_imagine.data.loader.stream.class%"
+    class: "%liip_imagine.binary.loader.stream.class%"
     arguments:
-      - "@liip_imagine"
       - 'gaufrette://accommodation_fs/'
     tags:
-      - { name: 'liip_imagine.data.loader', loader: 'stream.accommodation' }
+      - { name: 'liip_imagine.binary.loader', loader: 'stream.accommodation' }
 
   liip_imagine.data.loader.stream.route:
-    class: "%liip_imagine.data.loader.stream.class%"
+    class: "%liip_imagine.binary.loader.stream.class%"
     arguments:
-      - "@liip_imagine"
       - 'gaufrette://route_fs/'
     tags:
-      - { name: 'liip_imagine.data.loader', loader: 'stream.route' }
+      - { name: 'liip_imagine.binary.loader', loader: 'stream.route' }
 
   liip_imagine.data.loader.stream.gallery:
-      class: "%liip_imagine.data.loader.stream.class%"
-      arguments:
-        - "@liip_imagine"
-        - 'gaufrette://gallery_fs/'
-      tags:
-        - { name: 'liip_imagine.data.loader', loader: 'stream.gallery' }
+    class: "%liip_imagine.binary.loader.stream.class%"
+    arguments:
+      - 'gaufrette://gallery_fs/'
+    tags:
+      - { name: 'liip_imagine.binary.loader', loader: 'stream.gallery' }
 
   liip_imagine.data.loader.stream.blog:
-        class: "%liip_imagine.data.loader.stream.class%"
-        arguments:
-          - "@liip_imagine"
-          - 'gaufrette://blog_fs/'
-        tags:
-          - { name: 'liip_imagine.data.loader', loader: 'stream.blog' }
+    class: "%liip_imagine.binary.loader.stream.class%"
+    arguments:
+      - 'gaufrette://blog_fs/'
+    tags:
+      - { name: 'liip_imagine.binary.loader', loader: 'stream.blog' }
 
 
 knp_gaufrette:
@@ -63,25 +59,28 @@ knp_gaufrette:
 
 vich_uploader:
   db_driver: orm
-  gaufrette: true
-  storage: vich_uploader.storage.gaufrette
+  storage: gaufrette
   mappings:
     accommodation:
       uri_prefix: /
       upload_destination: accommodation_fs
       namer: rodgermd.vichuploader.namer_md5
+      inject_on_load: true
     route:
       uri_prefix: /
       upload_destination: route_fs
       namer: rodgermd.vichuploader.namer_md5
+      inject_on_load: true
     galleries:
       uri_prefix: /
       upload_destination: gallery_fs
       namer: rodgermd.vichuploader.namer_md5
+      inject_on_load: true
     blogs:
       uri_prefix: /
       upload_destination: blog_fs
       namer: rodgermd.vichuploader.namer_md5
+      inject_on_load: true
 
 liip_imagine:
   driver: imagick

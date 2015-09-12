@@ -3,6 +3,7 @@
 namespace Site\BaseBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -145,7 +146,7 @@ class BaseImage
 
   /**
    * Gets file
-   * @return \Symfony\Component\HttpFoundation\File\UploadedFile
+   * @return \Symfony\Component\HttpFoundation\File\File
    */
   public function getFile()
   {
@@ -154,10 +155,10 @@ class BaseImage
 
   /**
    * Sets file
-   * @param \Symfony\Component\HttpFoundation\File\UploadedFile $file
+   * @param \Symfony\Component\HttpFoundation\File\File $file
    * @return \Site\BaseBundle\Entity\BaseImage
    */
-  public function setFile(UploadedFile $file)
+  public function setFile(File $file)
   {
     $this->file = $file;
     $this->updated_at = null;

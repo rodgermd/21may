@@ -3,7 +3,7 @@
 ############
 /app/cache
 /app/logs
-/app/config/parameters.yml
+/app/config/parameters.private.yml
 /app/bootstrap*
 /app/Symfony*
 /.idea

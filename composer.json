@@ -28,10 +28,10 @@
     "knplabs/knp-gaufrette-bundle"               : "@stable",
     "doctrine/doctrine-fixtures-bundle"          : "@stable",
     "sonata-project/admin-bundle"                : "@stable",
+    "sonata-project/core-bundle"                 : "@stable",
     "sonata-project/doctrine-orm-admin-bundle"   : "@stable",
     "sonata-project/cache-bundle"                : "@stable",
     "sonata-project/intl-bundle"                 : "@stable",
-    "sonata-project/jquery-bundle"               : "@stable",
     "rodgermd/sftools-bundle"                    : "@stable",
     "rodgermd/compass-bundle"                    : "*",
     "ladela/personal-translations-widget-bundle" : "@stable",
@@ -46,6 +46,7 @@
       "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
     ],
     "post-update-cmd"  : [
+      "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
       "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
       "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
       "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
@@ -58,7 +59,7 @@
     "symfony-web-dir"        : "web",
     "symfony-assets-install" : "symlink",
     "incenteev-parameters"   : {
-      "file"      : "app/config/parameters.yml",
+      "file"      : "app/config/parameters.private.yml",
       "dist-file" : "app/config/parameters.sample.yml"
     },
     "branch-alias"           : {

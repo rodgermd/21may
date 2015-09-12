@@ -1,0 +1,8 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_driver: pdo_mysql
+    database_host: localhost
+    database_port: null
+    locale: en
+    secret: aqwrwfojasfaouwoyghagaoshgaoshgaoshgsd
+    yui_compressor: /usr/share/yui-compressor/yui-compressor.jar
