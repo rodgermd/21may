@@ -2,19 +2,35 @@
 
 namespace Site\BaseBundle\Form;
 
+use Site\BaseBundle\Model\AccommodationContactModel;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
+/**
+ * Class AccommodationContactType
+ *
+ * @package Site\BaseBundle\Form
+ */
 class AccommodationContactType extends ContactType
 {
-  public function setDefaultOptions(OptionsResolverInterface $resolver)
-  {
-    $resolver->replaceDefaults(array('data_class' => 'Site\BaseBundle\Model\AccommodationContactModel'));
-  }
+    /**
+     * Sets default options
+     *
+     * @param OptionsResolverInterface $resolver
+     */
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        $resolver->setDefaults(array('data_class' => AccommodationContactModel::class));
+    }
 
-  public function getName()
-  {
-    return 'book_accommodation';
-  }
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return 'book_accommodation';
+    }
 }
