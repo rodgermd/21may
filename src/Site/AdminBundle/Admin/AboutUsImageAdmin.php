@@ -10,26 +10,32 @@ use Site\BaseBundle\Entity\AccommodationTranslation;
 
 class AboutUsImageAdmin extends Admin
 {
-  protected function configureListFields(ListMapper $list) // optional
-  {
-    $list
-      ->addIdentifier('title')
-      ->addIdentifier('filename', null, array(
-      'template' => 'SiteAdminBundle:AboutUsImageAdmin:list_image.html.twig',
-      'label' => 'Image'
-    ))
-    ->add('created_at', 'date')
-    ;
-  }
+    protected function configureListFields(ListMapper $list) // optional
+    {
+        $list
+            ->addIdentifier('title')
+            ->addIdentifier(
+                'filename',
+                null,
+                array(
+                    'template' => 'SiteAdminBundle:AboutUsImageAdmin:list_image.html.twig',
+                    'label'    => 'Image'
+                )
+            )
+            ->add('created_at', 'date');
+    }
 
-  protected function configureFormFields(FormMapper $form)
-  {
-    $form
-      ->add('title')
-      ->add('file', 'image_file', array(
-      'filter' => 'galleries_admin_preview',
-      'required'   => false,
-      'method'     => 'getFilename'
-    ));
-  }
+    protected function configureFormFields(FormMapper $form)
+    {
+        $form
+            ->add('title')
+            ->add(
+                'file',
+                'image_delete',
+                array(
+                    'filter'   => 'galleries_admin_preview',
+                    'required' => false,
+                )
+            );
+    }
 }

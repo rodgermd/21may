@@ -1,6 +1,6 @@
 {% block user_block %}
   {{ app.user }} -
-  <a href="{{ path('fos_user_security_logout') }}">{% trans %}user.logout{% endtrans %}</a>
+  <a href="{{ path('fos_user_security_logout') }}">{{ 'user.logout' | trans({ }, 'messages') }}</a>
   -
   <a href="{{ path('homepage') }}">{{ 'Jump to site homepage' | trans }}</a>
 {% endblock %}

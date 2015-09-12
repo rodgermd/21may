@@ -11,25 +11,32 @@ use Site\BaseBundle\Entity\AccommodationTranslation;
 class RouteImageAdmin extends Admin
 {
 
-  protected function configureListFields(ListMapper $list) // optional
-  {
-    $list
-      ->addIdentifier('filename', null, array(
-      'template' => 'SiteAdminBundle:RouteImageAdmin:list_image.html.twig',
-      'label' => 'Image'
-    ))
-    ->add('route')
-    ;
-  }
+    protected function configureListFields(ListMapper $list) // optional
+    {
+        $list
+            ->addIdentifier(
+                'filename',
+                null,
+                array(
+                    'template' => 'SiteAdminBundle:RouteImageAdmin:list_image.html.twig',
+                    'label'    => 'Image'
+                )
+            )
+            ->add('route');
+    }
 
-  protected function configureFormFields(FormMapper $form)
-  {
-    $form
-      ->add('route')
-      ->add('file', 'image_file', array(
-      'filter' => 'route_admin_preview',
-      'required'   => false,
-      'method'     => 'getFilename'
-    ));
-  }
+    protected function configureFormFields(FormMapper $form)
+    {
+        $form
+            ->add('route')
+            ->add(
+                'file',
+                'image_delete',
+                array(
+                    'filter'   => 'route_admin_preview',
+                    'required' => false,
+                    'label'    => ' '
+                )
+            );
+    }
 }
