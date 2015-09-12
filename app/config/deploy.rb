@@ -27,6 +27,8 @@ set :webserver_user,    "www-data"
 set :permission_method, :acl
 
 set :dump_assetic_assets, true
-set :interactive_mode, true
+set :interactive_mode, false
 
 logger.level = Logger::MAX_LEVEL
+
+after "deploy", "deploy:set_permissions"

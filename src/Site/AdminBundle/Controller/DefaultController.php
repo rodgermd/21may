@@ -10,15 +10,19 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Site\UserBundle\Entity\User;
 
 
-
+/**
+ * Class DefaultController
+ *
+ * @package Site\AdminBundle\Controller
+ */
 class DefaultController extends CoreController
 {
-  /**
-   * @Route("/")
-   * @return \Symfony\Component\HttpFoundation\Response
-   */
-  public function dashboardAction()
-  {
-    return parent::dashboardAction();
-  }
+    /**
+     * @Route("/")
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function dashboardAction()
+    {
+        return parent::dashboardAction();
+    }
 }

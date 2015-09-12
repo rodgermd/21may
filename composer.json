@@ -35,7 +35,8 @@
     "rodgermd/sftools-bundle"                    : "@stable",
     "rodgermd/compass-bundle"                    : "*",
     "ladela/personal-translations-widget-bundle" : "@stable",
-    "stfalcon/tinymce-bundle"                    : "@stable"
+    "stfalcon/tinymce-bundle"                    : "@stable",
+    "blueimp/jquery-file-upload"                 : "@stable"
   },
   "scripts"           : {
     "post-install-cmd" : [

@@ -2,6 +2,7 @@
 
 namespace Site\AdminBundle\Controller;
 
+use Sonata\AdminBundle\Controller\CRUDController;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -11,7 +12,11 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Site\UserBundle\Entity\User;
 
 
-
-class RouteImageAdminController extends \Sonata\AdminBundle\Controller\CRUDController
+/**
+ * Class RouteImageAdminController
+ *
+ * @package Site\AdminBundle\Controller
+ */
+class RouteImageAdminController extends CRUDController
 {
 }

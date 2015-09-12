@@ -7,7 +7,9 @@ $.fn.handle_images = function()
 
   $obj = {
     init: function() {
-      $f.fileupload();
+      $f.fileupload({
+        url: $f.attr('action')
+      });
       $list.sortable({
         stop: function(e, ui) {
          var order = $list.sortable( "serialize", { attribute: "image_id" } );

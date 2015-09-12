@@ -2,27 +2,40 @@
 
 namespace Site\AdminBundle\Form;
 
+use Site\BaseBundle\Entity\AccommodationImage;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class AccommodationImageType extends AbstractType
 {
-  public function buildForm(FormBuilderInterface $builder, array $options)
-  {
-    $builder->add('file', 'file', array('data_class' => null));
-  }
+    /**
+     * @param FormBuilderInterface $builder
+     * @param array                $options
+     */
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+        $builder->add('file', 'file', array('data_class' => null));
+    }
 
-  public function setDefaultOptions(OptionsResolverInterface $resolver)
-  {
-    $resolver->setDefaults(array(
-      'data_class'      => "Site\BaseBundle\Entity\AccommodationImage",
-      'csrf_protection' => false
-    ));
-  }
+    /**
+     * @param OptionsResolverInterface $resolver
+     */
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        $resolver->setDefaults(
+            array(
+                'data_class'      => AccommodationImage::class,
+                'csrf_protection' => false
+            )
+        );
+    }
 
-  public function getName()
-  {
-    return "";
-  }
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return "";
+    }
 }
