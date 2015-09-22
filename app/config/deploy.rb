@@ -1,6 +1,6 @@
 set :application, "21may"
-set :domain,      "ec2-52-27-153-196.us-west-2.compute.amazonaws.com"
-set :deploy_to,   "/var/www/21may"
+set :domain,      "104.236.121.148"
+set :deploy_to,   "/var/www/www.turismo21demayo.com"
 set :app_path,    "app"
 
 set :repository,  "git@github.com:rodgermd/21may.git"
@@ -20,7 +20,7 @@ set :shared_files,    ["app/config/parameters.yml", "app/config/parameters.priva
 set :use_composer,    true
 set :update_vendors,  false
 set :use_sudo,        true
-set :user,            "ubuntu"
+set :user,            "rodger"
 
 set :writable_dirs,     ["app/cache", "app/logs", "web", "web/media"]
 set :webserver_user,    "www-data"

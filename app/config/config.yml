@@ -18,8 +18,6 @@ framework:
     templating:      { engines: ['twig'] } #assets_version: SomeVersionScheme
     default_locale:  "%locale%"
     trusted_proxies: ~
-    session:
-      save_path:            %kernel.cache_dir%/../sessions
 
 # Twig Configuration
 twig:
