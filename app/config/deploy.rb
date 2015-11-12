@@ -1,6 +1,10 @@
+set :stage_dir,     "app/config/stages"
+set :stages, %w(www test1 test2)
+require 'capistrano/ext/multistage'
+set :default_stage, "www"
+
 set :application, "21may"
 set :domain,      "104.236.121.148"
-set :deploy_to,   "/var/www/www.turismo21demayo.com"
 set :app_path,    "app"
 
 set :repository,  "git@github.com:rodgermd/21may.git"
