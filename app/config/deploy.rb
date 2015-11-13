@@ -1,5 +1,5 @@
 set :stage_dir,     "app/config/stages"
-set :stages, %w(www test1 test2)
+set :stages, %w(www test static)
 require 'capistrano/ext/multistage'
 set :default_stage, "www"
 

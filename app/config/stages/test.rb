@@ -1,0 +1,1 @@
+set :deploy_to,   "/var/www/test.turismo21demayo.com"
